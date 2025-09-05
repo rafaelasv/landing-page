@@ -91,6 +91,7 @@ export default function Home() {
                 title: "Gerador de Senhas",
                 description: "Gerador de senhas seguras e personalizáveis.",
                 tech: ["HTML", "CSS", "JavaScript"],
+                link: "/senhas",
               },
               {
                 title: "Gerador QR Code",
@@ -126,8 +127,11 @@ export default function Home() {
                     variant="outline"
                     size="sm"
                     className="w-full font-bold border-2 border-gray-900 bg-transparent text-gray-900 hover:bg-gray-100"
+                    asChild
                   >
-                    Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                    <a href={project.link ?? "#"}>
+                      Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
