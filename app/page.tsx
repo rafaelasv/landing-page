@@ -87,6 +87,7 @@ export default function Home() {
                 title: "Relógio Digital",
                 description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.2",
                 tech: ["HTML", "CSS", "JavaScript"],
+                link: "/relogio",
               },
               {
                 title: "Gerador de Senhas",
@@ -98,6 +99,7 @@ export default function Home() {
                 title: "Gerador QR Code",
                 description: "Projeto simples para gerar QR Codes a partir de texto ou URLs.",
                 tech: ["CSS3", "JavaScript", "HTML5"],
+                link: "/geradorqr",
               },
             ].map((project, index) => (
               <Card key={index} className="border-4 border-gray-900 hover:shadow-lg transition-shadow group bg-white">
