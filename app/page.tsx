@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import Link from "next/link"  
 
 export default function Home() {
   return (
