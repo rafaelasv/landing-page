@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -121,5 +120,61 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide Next.js development indicators */
+  [class*="next_logo"],
+  [class*="nextjs-portal"],
+  [data-nextjs-dialog-overlay],
+  [data-nextjs-toast],
+  [data-nextjs-dev-tools-button],
+  [id*="devtools-indicator"],
+  [data-next-badge],
+  [data-next-badge-root],
+  .nextjs-toast,
+  #__next-build-watcher,
+  #__nextjs__container__errors__label,
+  #__nextjs__container__build__indicator {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+}
+
+@layer components {
+  /* Password Generator Range Slider Styling */
+  .password-range::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-purple-600 rounded-full cursor-pointer;
+    margin-top: -4px;
+  }
+
+  .password-range::-moz-range-thumb {
+    @apply w-4 h-4 bg-purple-600 rounded-full cursor-pointer border-none;
+  }
+
+  /* GitHub Corner Animation */
+  @keyframes octo-wave {
+    0%, 100% { transform: rotate(0deg); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
+  }
+
+  .github-corner:hover .octo-arm {
+    animation: octo-wave 560ms ease-in-out;
+  }
+
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+      animation: none;
+    }
+    .github-corner .octo-arm {
+      animation: octo-wave 560ms ease-in-out;
+    }
   }
 }

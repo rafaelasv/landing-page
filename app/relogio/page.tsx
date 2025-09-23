@@ -26,9 +26,9 @@ export default function RelogioPage() {
 
   // Calcula hora com fuso
   const utcHours = now.getUTCHours();
-  let hours = (utcHours + timezone + 24) % 24;
-  let minutes = now.getUTCMinutes();
-  let seconds = now.getUTCSeconds();
+  const hours = (utcHours + timezone + 24) % 24;
+  const minutes = now.getUTCMinutes();
+  const seconds = now.getUTCSeconds();
 
   // Formata para 2 dígitos
   const pad = (n: number) => n.toString().padStart(2, "0");
