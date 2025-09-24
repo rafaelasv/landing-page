@@ -68,12 +68,14 @@ export default function RelogioPage() {
         </div>
         <div className="text-white text-sm mt-6 mb-2">{formatDate(new Date(now.getTime() + timezone * 3600000))}</div>
       </div>
+      
+      {/* Back to Home Button */}
       <Button
         variant="outline"
-        className="font-bold text-xs bg-transparent text-white hover:bg-gray-100 mt-8 rounded-[20px] px-5 py-2 border-white"
+        className="absolute top-4 left-4 font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors"
         asChild
       >
-        <Link href="/">Voltar para a Página Inicial</Link>
+        <Link href="/">← Voltar</Link>
       </Button>
 
       {/* Botões de formato e fuso horário fixos na parte inferior */}

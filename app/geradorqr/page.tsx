@@ -72,12 +72,14 @@ export default function GeradorQRPage() {
           </Button>
         </div>
       </div>
+      
+      {/* Back to Home Button */}
       <Button
         variant="outline"
-        className="font-bold bg-[#9fffcb] text-gray-900 hover:bg-gray-100 mt-8 rounded-[20px] px-5 py-2 border-none"
+        className="absolute top-4 left-4 font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors"
         asChild
       >
-        <Link href="/">Voltar para a Página Inicial</Link>
+        <Link href="/">← Voltar</Link>
       </Button>
     </div>
   );
