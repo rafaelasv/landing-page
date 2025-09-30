@@ -11,7 +11,7 @@ export default function GeradorQRPage() {
 
   useEffect(() => {
     if (qrRef.current) {
-      qrRef.current.innerHTML = ""; // Limpa o container antes de adicionar
+      qrRef.current.innerHTML = ""; // Clear the container before adding a new QR code
     }
     const qr = new QRCodeStyling({
       width: 200,
@@ -33,7 +33,8 @@ export default function GeradorQRPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#003845]">
       <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-center max-w-[1100px] w-full border-4 border-[#9fffcb] rounded-[300px] bg-[#003845] p-10 mt-16">
-        {/* Lado esquerdo */}
+
+        {/* Left side */}
         <div className="flex flex-col items-center justify-center text-center min-h-[300px]">
           <h1
             className="font-bold text-[45px] text-[#9fffcb] mt-5 mb-8"
@@ -61,7 +62,8 @@ export default function GeradorQRPage() {
             Gerar QR Code
           </Button>
         </div>
-        {/* Lado direito */}
+
+        {/* Right side */}
         <div className="flex flex-col items-center justify-center bg-[#9fffcb] rounded-[200px] p-8 gap-6 min-h-[300px]">
           <div ref={qrRef}></div>
           <Button
