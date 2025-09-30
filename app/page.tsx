@@ -50,7 +50,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
 
-            {/* Texto */}
+            {/* Text */}
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-black text-purple-600">SOBRE MIM</h2>
               <div className="w-20 h-1 bg-fuchsia-500" />
@@ -64,7 +64,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Foto com hover */}
+            {/* Photo with hover */}
             <div className="flex justify-center">
               <div className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg group">
                 
