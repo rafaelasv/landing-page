@@ -30,13 +30,13 @@ export default function RelogioPage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Calcula hora com fuso
+  // Calculate time with timezone
   const utcHours = now.getUTCHours();
   const hours = (utcHours + timezone + 24) % 24;
   const minutes = now.getUTCMinutes();
   const seconds = now.getUTCSeconds();
 
-  // Formata para 2 dígitos
+  // Format to 2 digits
   const pad = (n: number) => n.toString().padStart(2, "0");
 
   let displayHours = hours;
@@ -83,7 +83,7 @@ export default function RelogioPage() {
         <Link href="/">← Voltar</Link>
       </Button>
 
-      {/* Botões de formato e fuso horário fixos na parte inferior */}
+      {/* Fixed format and timezone buttons at the bottom */}
       <div className="fixed bottom-4 left-0 w-full flex flex-col md:flex-row gap-6 items-center justify-center z-10">
         <div className="flex items-center gap-2">
           <label htmlFor="format-select" className="text-white font-bold text-xs">Formato:</label>

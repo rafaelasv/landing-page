@@ -184,11 +184,7 @@ export default function SenhasPage() {
         </svg>
       </Link>
 
-      {/* Made by */}
-      <div className="fixed bottom-3 right-3 text-xs text-white/60 hover:text-white/100 transition-opacity duration-300">
-        Made by Rafaela T.
-      </div>
-
+  
       {/* Back to Home Button */}
       <Button
         variant="outline"
