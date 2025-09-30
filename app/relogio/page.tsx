@@ -2,6 +2,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
 
 const days = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
@@ -43,10 +49,9 @@ export default function RelogioPage() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center"
+      className={`${poppins.className} min-h-screen flex flex-col items-center justify-center`}
       style={{
         background: "linear-gradient(45deg, rgba(135,51,230,0.8), rgba(49,28,131,0.8), rgba(24,105,172,0.8), rgba(133,39,205,0.8))",
-        fontFamily: "'Poppins', sans-serif",
       }}
     >
 
@@ -55,7 +60,7 @@ export default function RelogioPage() {
           boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
         }}
       >
-        <div className="text-5xl font-bold text-white mb-2 flex items-center justify-center font-poppins"
+        <div className="text-5xl font-bold text-white mb-2 flex items-center justify-center"
         >
           <span className="inline-block w-16">{pad(displayHours)}</span>
           <span className="mx-4">:</span>

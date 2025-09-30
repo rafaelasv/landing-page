@@ -89,25 +89,33 @@ export default function Home() {
                 description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.",
                 tech: ["React", "Next.js", "Tailwind CSS"],
                 link: "/relogio",
+                thumbnail: "/images/relogio.png", 
               },
               {
                 title: "Gerador de Senhas",
                 description: "Gerador de senhas seguras e personalizáveis.",
                 tech: ["React", "Next.js", "Tailwind CSS"],
                 link: "/senhas",
+                thumbnail: "/images/geradorsenhas.png", 
               },
               {
                 title: "Gerador QR Code",
                 description: "Projeto simples para gerar QR Codes a partir de texto ou URLs.",
                 tech: ["React", "Next.js", "Tailwind CSS"],
                 link: "/geradorqr",
+                thumbnail: "/images/geradorqr.png", 
               },
             ].map((project, index) => (
               <Card key={index} className="border-4 border-gray-900 hover:shadow-lg transition-shadow group bg-white">
                 <CardContent className="p-6 space-y-4">
-                  <div className="h-40 bg-purple-100 border-2 border-gray-900 relative overflow-hidden">
-                    <div className="absolute inset-2 bg-purple-200" />
-                    <div className="absolute bottom-2 right-2 w-8 h-8 bg-fuchsia-500" />
+                  <div className="h-40 w-full relative overflow-hidden rounded-md border-2 border-gray-900">
+                    {/* Thumbnail */}
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+
                   </div>
 
                   <h3 className="text-xl font-black text-purple-600 group-hover:text-fuchsia-500 transition-colors">
