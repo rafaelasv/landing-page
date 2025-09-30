@@ -131,11 +131,10 @@ export default function SenhasPage() {
                     onChange={() => handleOptionChange(key)}
                     className="sr-only"
                   />
-                  <div className={`w-5 h-5 mr-3 border-2 rounded bg-transparent cursor-pointer transition-all duration-200 flex items-center justify-center ${
-                    options[key]
+                  <div className={`w-5 h-5 mr-3 border-2 rounded bg-transparent cursor-pointer transition-all duration-200 flex items-center justify-center ${options[key]
                       ? 'bg-purple-600 border-purple-600'
                       : 'border-cyan-400'
-                  }`}>
+                    }`}>
                     {options[key] && (
                       <span className="text-white text-sm font-bold">✓</span>
                     )}
@@ -146,15 +145,18 @@ export default function SenhasPage() {
             ))}
           </div>
 
-          {/* Generate Button */}
-          <button
-            onClick={generatePassword}
-            className="px-10 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-none rounded cursor-pointer text-base font-medium mx-auto block mt-8 hover:from-indigo-600 hover:to-purple-700 transition-all duration-200"
-          >
-            Gerar Senha
-          </button>
+
         </div>
       </div>
+
+
+      {/* Generate Button */}
+      <button
+        onClick={generatePassword}
+        className="px-10 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-none rounded cursor-pointer text-base font-medium mx-auto block mt-8 hover:from-indigo-600 hover:to-purple-700 transition-all duration-200"
+      >
+        Gerar Senha
+      </button>
 
       {/* GitHub Corner */}
       <Link
@@ -184,7 +186,7 @@ export default function SenhasPage() {
         </svg>
       </Link>
 
-  
+
       {/* Back to Home Button */}
       <Button
         variant="outline"
