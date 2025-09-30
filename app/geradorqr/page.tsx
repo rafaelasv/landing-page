@@ -37,7 +37,7 @@ export default function GeradorQRPage() {
         <div className="flex flex-col items-center justify-center text-center min-h-[300px]">
           <h1
             className="font-bold text-[45px] text-[#9fffcb] mt-5 mb-8"
-            style={{ fontFamily: "'Isidora Soft Alt', 'Isidora Soft', sans-serif" }}
+            style={{ fontFamily: "'Isidora', sans-serif" }}
           >
             Gerador de QR Code
           </h1>
