@@ -11,7 +11,7 @@ export default function Home() {
     return (
       <>
         {/* Hero Section */}
-        <section className="relative px-6 py-20 md:py-32 text-white">
+        <section className="relative px-6 pt-40 md:pt-60 pb-20 text-white">
           <div className="max-w-4xl mx-auto">
             {/* Geometric decoration */}
             <div className="absolute top-10 right-10 w-20 h-20 bg-purple-600 rotate-12 hidden md:block" />
@@ -28,7 +28,7 @@ export default function Home() {
                   style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }} />
               </div>
 
-              <p className="text-xl md:text-2xl font-bold max-w-2xl mx-auto text-white text-balance">
+              <p className="text-xl md:text-1xl max-w-2xl mx-auto text-white text-balance">
                 Desenvolvedora Frontend apaixonada por criar experiências digitais únicas e funcionais.
               </p>
 
@@ -56,14 +56,12 @@ export default function Home() {
             <div className="flex flex-col gap-1 mb-12">
               <span className="font-mono text-cyan-400 text-sm">&lt;/SobreMim&gt;</span>
               <div
-                className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(to right, #8ed0f9, #8a7fd9, #c572c9)" }}
-              >
+                className="text-4xl md:text-5xl font-bold bg-clip-text text-white">
                 MINHA JORNADA
               </div>
               <div
                 className="w-16 h-1 mt-2 rounded"
-                style={{ backgroundImage: "linear-gradient(to right, #06b6d4, #6366f1)" }}
+                style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
               />
             </div>
 
@@ -118,14 +116,12 @@ export default function Home() {
           <div className="flex flex-col gap-1 mb-12">
             <span className="font-mono text-cyan-400 text-sm text-center">&lt;/MeuPortfólio&gt;</span>
             <div
-              className="text-4xl md:text-5xl font-black bg-clip-text text-transparent text-center"
-              style={{ backgroundImage: "linear-gradient(to right, #8ed0f9, #8a7fd9, #c572c9)" }}
-            >
+              className="text-4xl md:text-5xl font-black bg-clip-text text-white text-center">
               PROJETOS
             </div>
             <div
               className="w-20 h-1 mt-2 rounded mx-auto"
-              style={{ backgroundImage: "linear-gradient(to right, #06b6d4, #6366f1)" }}
+              style={{backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
             />
           </div>
 
@@ -156,10 +152,9 @@ export default function Home() {
             ].map((project, index) => (
               <Card
                 key={index}
-                className="backdrop-blur-md border rounded-xl shadow-lg w-full max-w-[350px] h-[400px] p-6 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="bg-white/10 backdrop-blur-md border border-purple-400 rounded-xl shadow-lg w-full max-w-[350px] h-[400px] p-6 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 style={{
-                  backgroundColor: "rgba(38,31,50,0.6)",
-                  border: "2px solid #8a7fd9",          
+                  border: "2px solid #8a7fd9",
                   backdropFilter: "blur(12px) saturate(180%)",
                   WebkitBackdropFilter: "blur(12px) saturate(180%)",
                 }}
@@ -167,7 +162,7 @@ export default function Home() {
                 <CardContent className="p-0 flex flex-col justify-between h-full">
                   {/* Thumbnail */}
                   <div className="h-40 w-full mb-4 rounded-md overflow-hidden border"
-                  style={{border: "2px solid #8a7fd9",}}>
+                    style={{ border: "2px solid #8a7fd9", }}>
                     <img
                       src={project.thumbnail}
                       alt={project.title}
@@ -215,9 +210,18 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contato" className="px-6 pt-60 pb-20 text-white">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-8">CONTATO</h2>
-          <div className="w-20 h-1 bg-fuchsia-500 mx-auto mb-12" />
+          {/* Section Title */}
+          <span className="font-mono text-cyan-400 text-sm text-center">&lt;/FaleComigo&gt;</span>
+          <div
+            className="text-4xl md:text-5xl font-black text-white text-center mb-4"
+          >
+            CONTATO
+          </div>
+          <div className="w-20 h-1 mt-2 mb-8 rounded mx-auto"
+            style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
+          />
 
+          {/* Buttons */}
           <div className="flex justify-center gap-6">
             <Button size="lg" className="font-bold bg-purple-600 hover:bg-purple-700 text-white" asChild>
               <a href="mailto:rafaelajtv@gmail.com">
@@ -249,9 +253,10 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Footer */}
       <footer className="px-6 py-12 border-t-4 border-white text-white text-center">
-        <p className="font-bold">© 2025 Rafaela Tavares. Desenvolvido com ❤️ e muito código.</p>
+        <p className="font-bold">© 2025 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
       </footer>
     </div>
   )
