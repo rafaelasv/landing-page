@@ -129,6 +129,7 @@
   font-style: normal;
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -139,6 +140,7 @@
   html {
     scroll-behavior: smooth;
   }
+
 
   /* Hide Next.js development indicators */
   [class*="next_logo"],
@@ -160,6 +162,33 @@
     position: absolute !important;
     left: -9999px !important;
   }
+}
+
+@layer components {
+  /* Special class just for the landing */
+  .landing-gradient {
+    background: radial-gradient(
+      circle at center,
+      rgba(85, 0, 120, 0.2) 0%,
+      rgba(0, 0, 0, 0.95) 60%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      rgba(255, 100, 200, 0.05),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(255, 255, 200, 0.03),
+      transparent 60%
+    );
+    background-color: #0a0a12;
+    background-blend-mode: screen;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
 }
 
 @layer components {
@@ -193,3 +222,4 @@
     }
   }
 }
+
