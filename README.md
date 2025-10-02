@@ -1,14 +1,14 @@
-# Rafaela Tavares Page
+# 👩🏻‍💻 Rafaela Tavares - Portfólio Pessoal
 
 Personal website built with Node.js, Next.js, and React.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Node.js** - Runtime environment
 - **Next.js** - React framework
 - **React** - UI library
 
-## Getting Started
+## 🚦 Getting Started
 
 1. Clone this repository
 2. Install dependencies with `npm install`

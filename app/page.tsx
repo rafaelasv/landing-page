@@ -11,7 +11,7 @@ export default function Home() {
     return (
       <>
         {/* Hero Section */}
-        <section className="relative px-6 pt-40 md:pt-60 pb-20 text-white">
+        <section className="relative px-4 pt-32 pb-12 md:px-6 md:pt-40 md:pb-20 text-white">
           <div className="max-w-4xl mx-auto">
             {/* Geometric decoration */}
             <div className="absolute top-10 right-10 w-20 h-20 bg-purple-600 rotate-12 hidden md:block" />
@@ -19,27 +19,27 @@ export default function Home() {
 
             <div className="text-center space-y-8">
               <div className="space-y-4">
-                <h1 className="text-6xl md:text-8xl font-black text-white leading-none text-balance">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white leading-none text-balance">
                   RAFAELA
                   <br />
                   TAVARES
                 </h1>
-                <div className="w-32 h-2 mt-2 rounded mx-auto"
+                <div className="w-24 h-2 mt-2 rounded mx-auto"
                   style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }} />
               </div>
 
-              <p className="text-xl md:text-1xl max-w-2xl mx-auto text-white text-balance">
+              <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-white text-balance">
                 Desenvolvedora Frontend apaixonada por criar experiências digitais únicas e funcionais.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-4 pt-8">
-                <Button size="lg" className="font-bold text-lg px-8 py-6 bg-purple-600 hover:bg-purple-700 text-white" asChild>
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 pt-8">
+                <Button size="lg" className="font-bold text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 bg-purple-600 hover:bg-purple-700 text-white" asChild>
                   <a href="#projetos">Ver Projetos</a>
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="font-bold text-lg px-8 py-6 border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
+                  className="font-bold text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
                   asChild
                 >
                   <a href="https://linkedin.com/in/rafaela-s-tavares" target="_blank" rel="noopener noreferrer">Contato</a>
@@ -50,23 +50,22 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="sobremim" className="px-6 pt-60 pb-20 text-white">
+        <section id="sobremim" className="px-4 pt-32 pb-12 md:px-6 md:pt-60 md:pb-20 text-white">
           <div className="max-w-4xl mx-auto">
             {/* Title Section */}
-            <div className="flex flex-col gap-1 mb-12">
+            <div className="flex flex-col gap-1 mb-8 md:mb-12">
               <span className="font-mono text-cyan-400 text-sm">&lt;/SobreMim&gt;</span>
-              <div
-                className="text-4xl md:text-5xl font-bold bg-clip-text text-white">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-white">
                 MINHA JORNADA
               </div>
               <div
-                className="w-16 h-1 mt-2 rounded"
+                className="w-12 h-1 mt-2 rounded"
                 style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
               />
             </div>
 
             {/* Section Content */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Text */}
               <div>
                 <p className="text-gray-200 text-base leading-relaxed">
@@ -79,8 +78,8 @@ export default function Home() {
               </div>
 
               {/* Photo */}
-              <div className="flex justify-end">
-                <div className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg group">
+              <div className="flex justify-center md:justify-end">
+                <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white shadow-lg group">
                   <img
                     src="/images/sobremim.jpg"
                     alt="Minha foto"
@@ -90,7 +89,7 @@ export default function Home() {
                   <div className="absolute inset-0 rounded-full bg-purple-700 opacity-0 transition-opacity duration-300 group-hover:opacity-30" />
                   {/* RT */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="text-6xl font-black text-purple-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="text-4xl sm:text-5xl md:text-6xl font-black text-purple-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       RT
                     </div>
                   </div>
@@ -261,4 +260,3 @@ export default function Home() {
     </div>
   )
 }
-``
