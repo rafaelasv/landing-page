@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mail, ExternalLink } from "lucide-react"
 import Link from "next/link"
+import { SiHtml5, SiCss, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiPython, SiMysql } from "react-icons/si"
+import { BsRobot } from "react-icons/bs"
 
 export default function Home() {
 
@@ -70,10 +72,9 @@ export default function Home() {
               <div>
                 <p className="text-gray-200 text-base leading-relaxed">
                   Desenvolvedora frontend em aprendizado contínuo, com experiência real em automação e IA generativa. Antes de terminar o curso, já criava scripts em Python para eliminar processos manuais e construía agentes de IA para escalar atendimento ao cliente.
-
+                </p>
                 <p className="mt-4 text-gray-200 text-base leading-relaxed">
                   Acredito que tecnologia deve ser acessível e resolver problemas reais - por isso me dedico a criar interfaces que não apenas funcionam bem, mas encantam quem usa.
-                </p>
                 </p>
               </div>
 
@@ -107,6 +108,50 @@ export default function Home() {
     <div className="landing-gradient min-h-screen text-white">
       {/* LandingPage */}
       <LandingPage />
+
+      {/* Skills Section */}
+      <section id="skills" className="px-6 pt-60 pb-20 text-white">
+        <div className="max-w-4xl mx-auto">
+          {/* Section Title */}
+          <div className="flex flex-col gap-1 mb-12">
+            <span className="font-mono text-cyan-400 text-sm">&lt;/Skills&gt;</span>
+            <div className="text-4xl md:text-5xl font-black text-white">
+              TECNOLOGIAS
+            </div>
+            <div
+              className="w-20 h-1 mt-2 rounded"
+              style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
+            />
+          </div>
+
+          {/* Skills Grid */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+            {[
+              { name: "HTML", icon: <SiHtml5 className="w-8 h-8" />, color: "#e34f26" },
+              { name: "CSS", icon: <SiCss className="w-8 h-8" />, color: "#1572b6" },
+              { name: "React", icon: <SiReact className="w-8 h-8" />, color: "#61dafb" },
+              { name: "Next.js", icon: <SiNextdotjs className="w-8 h-8" />, color: "#ffffff" },
+              { name: "TypeScript", icon: <SiTypescript className="w-8 h-8" />, color: "#3178c6" },
+              { name: "Tailwind CSS", icon: <SiTailwindcss className="w-8 h-8" />, color: "#38bdf8" },
+              { name: "Python", icon: <SiPython className="w-8 h-8" />, color: "#ffd343" },
+              { name: "IA Generativa", icon: <BsRobot className="w-8 h-8" />, color: "#c572c9" },
+              { name: "MySQL", icon: <SiMysql className="w-8 h-8" />, color: "#4479a1" },
+            ].map((skill) => (
+              <div
+                key={skill.name}
+                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/10 border-2 border-purple-400/50 backdrop-blur-sm hover:border-purple-400 hover:bg-white/20 transition-all duration-200 hover:-translate-y-1"
+                style={{
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                }}
+              >
+                <span style={{ color: skill.color }}>{skill.icon}</span>
+                <span className="text-white text-xs font-bold text-center">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Projects Section */}
       <section id="projetos" className="px-6 pt-60 pb-20 text-white">
