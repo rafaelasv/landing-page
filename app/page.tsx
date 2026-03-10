@@ -148,6 +148,14 @@ export default function Home() {
                 link: "/geradorqr",
                 thumbnail: "/images/geradorqr.png",
               },
+              {
+                title: "O Bando Mágico",
+                description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
+                tech: ["React", "Next.js", "Tailwind CSS"],
+                link: "https://bando-magico.vercel.app/",
+                thumbnail: "/images/bandomagico.png",
+                external: true,
+              },
             ].map((project, index) => (
               <Card
                 key={index}
@@ -194,9 +202,15 @@ export default function Home() {
                     className="w-full font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
                     asChild
                   >
-                    <Link href={project.link ?? "#"}>
-                      Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
+                    {project.external ? (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    ) : (
+                      <Link href={project.link ?? "#"}>
+                        Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                    )}
                   </Button>
                 </CardContent>
               </Card>
