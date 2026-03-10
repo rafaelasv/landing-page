@@ -29,7 +29,7 @@ export default function Home() {
               </div>
 
               <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-white text-balance">
-                Desenvolvedora Frontend apaixonada por criar experiências digitais únicas e funcionais.
+                Support Engineer & Frontend Developer
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 pt-8">
@@ -69,11 +69,11 @@ export default function Home() {
               {/* Text */}
               <div>
                 <p className="text-gray-200 text-base leading-relaxed">
-                  Sou uma desenvolvedora frontend em aprendizado contínuo, apaixonada por transformar ideias em realidade digital.
-                  Estou explorando React, Next.js e TypeScript, e busco criar interfaces que combinam funcionalidade e design impactante.
-                </p>
+                  Desenvolvedora frontend em aprendizado contínuo, com experiência real em automação e IA generativa. Antes de terminar o curso, já criava scripts em Python para eliminar processos manuais e construía agentes de IA para escalar atendimento ao cliente.
+
                 <p className="mt-4 text-gray-200 text-base leading-relaxed">
-                  Acredito que a tecnologia deve ser acessível e bonita, por isso me dedico a desenvolver experiências que não apenas funcionam bem, mas também encantam os usuários.
+                  Acredito que tecnologia deve ser acessível e resolver problemas reais - por isso me dedico a criar interfaces que não apenas funcionam bem, mas encantam quem usa.
+                </p>
                 </p>
               </div>
 
