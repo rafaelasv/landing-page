@@ -113,7 +113,7 @@ export default function Home() {
       <section id="skills" className="px-6 pt-60 pb-20 text-white">
         <div className="max-w-4xl mx-auto">
           {/* Section Title */}
-          <div className="flex flex-col gap-1 mb-12">
+          <div className="flex flex-col gap-1 mb-12 items-center text-center">
             <span className="font-mono text-cyan-400 text-sm">&lt;/Skills&gt;</span>
             <div className="text-4xl md:text-5xl font-black text-white">
               TECNOLOGIAS
@@ -173,18 +173,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {[
               {
-                title: "Relógio Digital",
-                description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.",
+                title: "O Bando Mágico",
+                description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
                 tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "/relogio",
-                thumbnail: "/images/relogio.png",
-              },
-              {
-                title: "Gerador de Senhas",
-                description: "Gerador de senhas seguras e personalizáveis.",
-                tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "/senhas",
-                thumbnail: "/images/geradorsenhas.png",
+                link: "https://bando-magico.vercel.app/",
+                thumbnail: "/images/bandomagico.png",
+                external: true,
               },
               {
                 title: "Gerador QR Code",
@@ -194,12 +188,18 @@ export default function Home() {
                 thumbnail: "/images/geradorqr.png",
               },
               {
-                title: "O Bando Mágico",
-                description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
+                title: "Gerador de Senhas",
+                description: "Gerador de senhas seguras e personalizáveis.",
                 tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "https://bando-magico.vercel.app/",
-                thumbnail: "/images/bandomagico.png",
-                external: true,
+                link: "/senhas",
+                thumbnail: "/images/geradorsenhas.png",
+              },
+              {
+                title: "Relógio Digital",
+                description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.",
+                tech: ["React", "Next.js", "Tailwind CSS"],
+                link: "/relogio",
+                thumbnail: "/images/relogio.png",
               },
             ].map((project, index) => (
               <Card
