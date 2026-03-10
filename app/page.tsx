@@ -269,7 +269,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-6 py-12 border-t-4 border-white text-white text-center">
-        <p className="font-bold">© 2025 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
+        <p className="font-bold">© 2026 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
       </footer>
     </div>
   )
