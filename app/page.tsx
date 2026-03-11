@@ -1,3 +1,4 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,11 +14,11 @@ export default function Home() {
     return (
       <>
         {/* Hero Section */}
-        <section className="relative px-4 pt-32 pb-12 md:px-6 md:pt-40 md:pb-20 text-white">
+        <section className="relative px-4 pt-32 pb-12 md:px-6 md:pt-40 md:pb-20 text-white min-h-screen flex flex-col justify-center">
           <div className="max-w-4xl mx-auto">
             {/* Geometric decoration */}
-            <div className="absolute top-10 right-10 w-20 h-20 bg-purple-600 rotate-12 hidden md:block" />
-            <div className="absolute bottom-20 left-10 w-16 h-16 bg-fuchsia-500 rotate-45 hidden md:block" />
+            <div className="absolute top-10 right-10 w-20 h-20 bg-purple-600 rotate-12 hidden md:block float-shape" />
+            <div className="absolute bottom-20 left-10 w-16 h-16 bg-fuchsia-500 rotate-45 hidden md:block float-shape-slow" style={{ animationDelay: "1s" }} />
 
             <div className="text-center space-y-8">
               <div className="space-y-4">
@@ -106,6 +107,18 @@ export default function Home() {
 
   return (
     <div className="landing-gradient min-h-screen text-white">
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between"
+        style={{ background: "rgba(10, 7, 20, 0.7)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid rgba(138, 127, 217, 0.2)" }}>
+        <a href="#" className="text-white font-black text-xl tracking-widest hover:text-purple-400 transition-colors">RT</a>
+        <div className="flex gap-6 text-sm font-bold">
+          <a href="#sobremim" className="text-gray-300 hover:text-purple-400 transition-colors">Sobre Mim</a>
+          <a href="#skills" className="text-gray-300 hover:text-purple-400 transition-colors">Skills</a>
+          <a href="#projetos" className="text-gray-300 hover:text-purple-400 transition-colors">Projetos</a>
+          <a href="#contato" className="text-gray-300 hover:text-purple-400 transition-colors">Contato</a>
+        </div>
+      </nav>
+
       {/* LandingPage */}
       <LandingPage />
 

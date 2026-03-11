@@ -202,6 +202,20 @@
     @apply w-4 h-4 bg-purple-600 rounded-full cursor-pointer border-none;
   }
 
+  /* Floating animation for decorative shapes */
+  @keyframes float {
+    0%, 100% { translate: 0px 0px; }
+    50% { translate: 0px -16px; }
+  }
+
+  .float-shape {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .float-shape-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
   /* GitHub Corner Animation */
   @keyframes octo-wave {
     0%, 100% { transform: rotate(0deg); }
