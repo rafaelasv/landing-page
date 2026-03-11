@@ -205,6 +205,24 @@ export default function Home() {
                 <p className="mt-4 text-gray-200 text-base leading-relaxed">
                   Acredito que tecnologia deve ser acessível e resolver problemas reais - por isso me dedico a criar interfaces que não apenas funcionam bem, mas encantam quem usa.
                 </p>
+
+                {/* Formação */}
+                <div className="mt-6 flex flex-col gap-3">
+                  <div className="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-3 border border-purple-400/30">
+                    <img src="/images/IFSULDEMINAS_logo.png" alt="IFSULDEMINAS" className="h-10 w-20 object-contain" />
+                    <div>
+                      <p className="text-white text-sm font-bold">Técnica em Informática para Internet</p>
+                      <p className="text-gray-400 text-xs">IFSULDEMINAS</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-3 border border-purple-400/30">
+                    <img src="/images/uninter-logo.png" alt="UNINTER" className="h-10 w-20 object-contain" />
+                    <div>
+                      <p className="text-white text-sm font-bold">Análise e Desenvolvimento de Sistemas</p>
+                      <p className="text-gray-400 text-xs">UNINTER · Em andamento</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Photo */}
