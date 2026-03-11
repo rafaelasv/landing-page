@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -6,6 +7,133 @@ import { Mail, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { SiHtml5, SiCss, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiPython, SiMysql } from "react-icons/si"
 import { BsRobot } from "react-icons/bs"
+
+const allProjects = [
+  {
+    title: "O Bando Mágico",
+    description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    link: "https://bando-magico.vercel.app/",
+    thumbnail: "/images/bandomagico.png",
+    external: true,
+    category: "Frontend",
+  },
+  {
+    title: "Gerador QR Code",
+    description: "Projeto simples para gerar QR Codes a partir de texto ou URLs.",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    link: "/geradorqr",
+    thumbnail: "/images/geradorqr.png",
+    category: "Frontend",
+  },
+  {
+    title: "Gerador de Senhas",
+    description: "Gerador de senhas seguras e personalizáveis.",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    link: "/senhas",
+    thumbnail: "/images/geradorsenhas.png",
+    category: "Frontend",
+  },
+  {
+    title: "Relógio Digital",
+    description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.",
+    tech: ["React", "Next.js", "Tailwind CSS"],
+    link: "/relogio",
+    thumbnail: "/images/relogio.png",
+    category: "Frontend",
+  },
+]
+
+const tabs = ["Todos", "Frontend", "IA & Automação"]
+
+function ProjectsSection() {
+  const [activeTab, setActiveTab] = useState("Todos")
+
+  const filtered = activeTab === "Todos"
+    ? allProjects
+    : allProjects.filter((p) => p.category === activeTab)
+
+  return (
+    <>
+      {/* Tab buttons */}
+      <div className="flex justify-center gap-2 mb-10">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 border-2 ${
+              activeTab === tab
+                ? "bg-purple-600 border-purple-600 text-white"
+                : "bg-transparent border-purple-400/50 text-gray-300 hover:border-purple-400 hover:text-white"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {filtered.map((project, index) => (
+          <Card
+            key={index}
+            className="bg-white/10 backdrop-blur-md border border-purple-400 rounded-xl shadow-lg w-full max-w-[350px] h-[400px] p-6 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            style={{
+              border: "2px solid #8a7fd9",
+              backdropFilter: "blur(12px) saturate(180%)",
+              WebkitBackdropFilter: "blur(12px) saturate(180%)",
+            }}
+          >
+            <CardContent className="p-0 flex flex-col justify-between h-full">
+              {/* Thumbnail */}
+              <div className="h-40 w-full mb-4 rounded-md overflow-hidden"
+                style={{ border: "2px solid #8a7fd9" }}>
+                <img
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">{project.title}</h3>
+
+              {/* Description */}
+              <p className="text-white text-sm mb-4">{project.description}</p>
+
+              {/* Tech badges */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech) => (
+                  <Badge key={tech} className="text-xs font-bold bg-purple-200 text-purple-800">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+
+              {/* Link */}
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
+                asChild
+              >
+                {project.external ? (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                ) : (
+                  <Link href={project.link ?? "#"}>
+                    Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
+                  </Link>
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </>
+  )
+}
 
 export default function Home() {
 
@@ -172,109 +300,17 @@ export default function Home() {
           {/* Section Title */}
           <div className="flex flex-col gap-1 mb-12">
             <span className="font-mono text-cyan-400 text-sm text-center">&lt;/MeuPortfólio&gt;</span>
-            <div
-              className="text-4xl md:text-5xl font-black bg-clip-text text-white text-center">
+            <div className="text-4xl md:text-5xl font-black bg-clip-text text-white text-center">
               PROJETOS
             </div>
             <div
               className="w-20 h-1 mt-2 rounded mx-auto"
-              style={{backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
+              style={{ backgroundImage: "linear-gradient(to right, #8a7fd9, #c572c9)" }}
             />
           </div>
 
-          {/* Projects Grids */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-            {[
-              {
-                title: "O Bando Mágico",
-                description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
-                tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "https://bando-magico.vercel.app/",
-                thumbnail: "/images/bandomagico.png",
-                external: true,
-              },
-              {
-                title: "Gerador QR Code",
-                description: "Projeto simples para gerar QR Codes a partir de texto ou URLs.",
-                tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "/geradorqr",
-                thumbnail: "/images/geradorqr.png",
-              },
-              {
-                title: "Gerador de Senhas",
-                description: "Gerador de senhas seguras e personalizáveis.",
-                tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "/senhas",
-                thumbnail: "/images/geradorsenhas.png",
-              },
-              {
-                title: "Relógio Digital",
-                description: "Projeto de Relógio Digital interativo, que exibe a hora em tempo real.",
-                tech: ["React", "Next.js", "Tailwind CSS"],
-                link: "/relogio",
-                thumbnail: "/images/relogio.png",
-              },
-            ].map((project, index) => (
-              <Card
-                key={index}
-                className="bg-white/10 backdrop-blur-md border border-purple-400 rounded-xl shadow-lg w-full max-w-[350px] h-[400px] p-6 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                style={{
-                  border: "2px solid #8a7fd9",
-                  backdropFilter: "blur(12px) saturate(180%)",
-                  WebkitBackdropFilter: "blur(12px) saturate(180%)",
-                }}
-              >
-                <CardContent className="p-0 flex flex-col justify-between h-full">
-                  {/* Thumbnail */}
-                  <div className="h-40 w-full mb-4 rounded-md overflow-hidden border"
-                    style={{ border: "2px solid #8a7fd9", }}>
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-cyan-400 mb-2">{project.title}</h3>
-
-                  {/* Description */}
-                  <p className="text-white text-sm mb-4">{project.description}</p>
-
-                  {/* Tech badges */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        className="text-xs font-bold bg-purple-200 text-purple-800"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  {/* Link */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
-                    asChild
-                  >
-                    {project.external ? (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    ) : (
-                      <Link href={project.link ?? "#"}>
-                        Ver Projeto <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    )}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
+          {/* Tabs */}
+          <ProjectsSection />
         </div>
       </section>
 
