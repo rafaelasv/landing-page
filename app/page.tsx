@@ -42,6 +42,15 @@ const allProjects = [
     thumbnail: "/images/relogio.png",
     category: "Frontend",
   },
+  {
+    title: "Automação de Download NFS-e",
+    description: "Script Python com interface gráfica para baixar automaticamente notas fiscais recebidas do Portal NFS-e Nacional, iterando sobre múltiplas empresas a partir de uma planilha Excel.",
+    tech: ["Python", "Selenium", "openpyxl", "customtkinter"],
+    link: "https://github.com/rafaelasv/baixa-nfse",
+    thumbnail: "/images/baixa_nfse.png",
+    external: true,
+    category: "IA & Automação",
+  },
 ]
 
 const tabs = ["Todos", "Frontend", "IA & Automação"]
