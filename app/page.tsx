@@ -53,6 +53,26 @@ const allProjects = [
   },
 ]
 
+function PixelHeart() {
+  const pixels = [
+    [0,1,1,0,1,1,0],
+    [1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1],
+    [0,1,1,1,1,1,0],
+    [0,0,1,1,1,0,0],
+    [0,0,0,1,0,0,0],
+  ]
+  const s = 3
+  return (
+    <svg width={7*s} height={6*s} viewBox={`0 0 ${7*s} ${6*s}`} style={{ imageRendering: "pixelated", display: "inline-block", verticalAlign: "middle" }}>
+      {pixels.map((row, y) => row.map((on, x) => on
+        ? <rect key={`${x}-${y}`} x={x*s} y={y*s} width={s} height={s} fill="#a855f7" />
+        : null
+      ))}
+    </svg>
+  )
+}
+
 const tabs = ["Todos", "Frontend", "IA & Automação"]
 
 function ProjectsSection() {
@@ -356,7 +376,7 @@ export default function Home() {
           />
 
           {/* Buttons */}
-          <div className="flex justify-center gap-6">
+          <div className="flex justify-center gap-6 mt-16">
             <Button size="lg" className="font-bold bg-purple-600 hover:bg-purple-700 text-white" asChild>
               <a href="mailto:rafaelajtv@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
@@ -389,8 +409,13 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="px-6 py-12 mt-20 border-t-4 border-white text-white text-center">
-        <p className="font-bold">© 2026 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
+      <footer className="relative px-6 py-12 mt-20 border-t-4 border-white text-white text-center"
+        style={{ background: "rgba(10, 7, 20, 0.7)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderTop: "1px solid rgba(138, 127, 217, 0.2)" }}>
+        <p className="text-sm">© 2026 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
+        <div className="heart-badge absolute right-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center cursor-pointer"
+          style={{ background: "rgba(10,7,20,0.9)", border: "2px solid #8a7fd9" }}>
+          <span className="heart-beat"><PixelHeart /></span>
+        </div>
       </footer>
     </div>
   )
