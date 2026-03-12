@@ -10,6 +10,15 @@ import { BsRobot } from "react-icons/bs"
 
 const allProjects = [
   {
+    title: "Automação de Download NFS-e",
+    description: "Automação com interface gráfica para baixar NFS-e do Portal Nacional para múltiplas empresas via planilha Excel.",
+    tech: ["Python", "Selenium", "openpyxl"],
+    link: "https://github.com/rafaelasv/baixa-nfse",
+    thumbnail: "/images/baixa_nfse.png",
+    external: true,
+    category: "IA & Automação",
+  },
+  {
     title: "O Bando Mágico",
     description: "Site em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e gerador de nomes.",
     tech: ["React", "Next.js", "Tailwind CSS"],
@@ -41,15 +50,6 @@ const allProjects = [
     link: "/relogio",
     thumbnail: "/images/relogio.png",
     category: "Frontend",
-  },
-  {
-    title: "Automação de Download NFS-e",
-    description: "Script Python com interface gráfica para baixar automaticamente notas fiscais recebidas do Portal NFS-e Nacional, iterando sobre múltiplas empresas a partir de uma planilha Excel.",
-    tech: ["Python", "Selenium", "openpyxl", "customtkinter"],
-    link: "https://github.com/rafaelasv/baixa-nfse",
-    thumbnail: "/images/baixa_nfse.png",
-    external: true,
-    category: "IA & Automação",
   },
 ]
 
@@ -86,16 +86,16 @@ function ProjectsSection() {
         {filtered.map((project, index) => (
           <Card
             key={index}
-            className="bg-white/10 backdrop-blur-md border border-purple-400 rounded-xl shadow-lg w-full max-w-[350px] h-[400px] p-6 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="bg-white/10 backdrop-blur-md border border-purple-400 rounded-xl shadow-lg w-full max-w-[350px] p-6 flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             style={{
               border: "2px solid #8a7fd9",
               backdropFilter: "blur(12px) saturate(180%)",
               WebkitBackdropFilter: "blur(12px) saturate(180%)",
             }}
           >
-            <CardContent className="p-0 flex flex-col justify-between h-full">
+            <CardContent className="p-0 flex flex-col h-full">
               {/* Thumbnail */}
-              <div className="h-40 w-full mb-4 rounded-md overflow-hidden"
+              <div className="h-40 w-full mb-4 rounded-md overflow-hidden flex-shrink-0"
                 style={{ border: "2px solid #8a7fd9" }}>
                 <img
                   src={project.thumbnail}
@@ -123,7 +123,7 @@ function ProjectsSection() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700"
+                className="w-full font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-purple-700 mt-auto"
                 asChild
               >
                 {project.external ? (
@@ -389,7 +389,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="px-6 py-12 border-t-4 border-white text-white text-center">
+      <footer className="px-6 py-12 mt-20 border-t-4 border-white text-white text-center">
         <p className="font-bold">© 2026 Rafaela Tavares. Desenvolvido com 💜 e muito código.</p>
       </footer>
     </div>
