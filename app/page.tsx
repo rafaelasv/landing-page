@@ -51,6 +51,24 @@ const allProjects = [
     thumbnail: "/images/relogio.png",
     category: "Frontend",
   },
+  {
+    title: "Scaldini Garcia Contabilidade",
+    description: "Redesign completo do site institucional da Scaldini Garcia Contabilidade.",
+    tech: ["Wix"],
+    link: "https://www.scaldinigarcia.com.br/",
+    thumbnail: "/images/scaldini-screenshot.png",
+    external: true,
+    category: "Freelance",
+  },
+  {
+    title: "Saigom Contabilidade",
+    description: "Site institucional desenvolvido para a Saigom Contabilidade.",
+    tech: ["React", "JavaScript"],
+    link: "https://saigom-contabilidade.vercel.app/",
+    thumbnail: "/images/saigom-screenshot.png",
+    external: true,
+    category: "Freelance",
+  },
 ]
 
 function PixelHeart() {
@@ -73,7 +91,7 @@ function PixelHeart() {
   )
 }
 
-const tabs = ["Todos", "Frontend", "IA & Automação"]
+const tabs = ["Todos", "Frontend", "IA & Automação", "Freelance"]
 
 function ProjectsSection() {
   const [activeTab, setActiveTab] = useState("Todos")
