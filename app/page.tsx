@@ -251,6 +251,13 @@ export default function Home() {
                       <p className="text-gray-400 text-xs">UNINTER · Em andamento</p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-3 border border-purple-400/30">
+                    <img src="/images/IFSULDEMINAS_logo.png" alt="IFSULDEMINAS" className="h-10 w-20 object-contain" />
+                    <div>
+                      <p className="text-white text-sm font-bold">Técnico em Desenvolvimento de Sistemas</p>
+                      <p className="text-gray-400 text-xs">IFSULDEMINAS · Em andamento</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
