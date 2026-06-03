@@ -2,18 +2,30 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Poppins } from "next/font/google";
+import { Cinzel, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cinzel",
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",
+})
+
 export const metadata: Metadata = {
-  title: "Rafaela Tavares - Desenvolvedora Frontend",
+  title: "Rafaela Tavares — Frontend & Automação",
   description: "Portfolio de Rafaela Tavares, desenvolvedora frontend especializada em React, Next.js e TypeScript",
   icons: {
     icon: [
       {
-        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%239333ea'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>RT</text></svg>",
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c9a96e'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' fill='%230f0719' text-anchor='middle'>RT</text></svg>",
         type: "image/svg+xml",
       },
     ],
@@ -27,11 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} ${cinzel.variable} ${inter.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <script
