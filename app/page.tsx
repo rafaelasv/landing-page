@@ -491,8 +491,8 @@ export default function Home() {
         <h2 data-fade="">Vamos criar algo<br />extraordinário?</h2>
         <p className="contact-sub" data-fade="">Aberta para oportunidades e colaborações</p>
         <div data-fade="">
-          <a href="mailto:rafaelajtv@gmail.com" className="contact-email">
-            rafaelajtv@gmail.com
+          <a href="mailto:contato@rafaelatavares.dev" className="contact-email">
+            contato@rafaelatavares.dev
           </a>
         </div>
         <div className="socials" data-fade="">
