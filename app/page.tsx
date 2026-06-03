@@ -1,6 +1,8 @@
 "use client"
 import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
+import { SiReact, SiNextdotjs, SiTypescript, SiPython, SiNodedotjs, SiTailwindcss, SiPostgresql, SiGit, SiSelenium } from "react-icons/si"
+import { BsRobot } from "react-icons/bs"
 
 const projects = [
   {
@@ -76,16 +78,16 @@ const projects = [
 ]
 
 const skills = [
-  { glyph: "Re", name: "React" },
-  { glyph: "Nx", name: "Next.js" },
-  { glyph: "TS", name: "TypeScript" },
-  { glyph: "Py", name: "Python" },
-  { glyph: "No", name: "Node.js" },
-  { glyph: "AI", name: "IA / LLMs" },
-  { glyph: "Cs", name: "CSS" },
-  { glyph: "Pg", name: "PostgreSQL" },
-  { glyph: "Gi", name: "Git" },
-  { glyph: "Au", name: "Automação" },
+  { icon: <SiReact />,      name: "React" },
+  { icon: <SiNextdotjs />,  name: "Next.js" },
+  { icon: <SiTypescript />, name: "TypeScript" },
+  { icon: <SiPython />,     name: "Python" },
+  { icon: <SiNodedotjs />,  name: "Node.js" },
+  { icon: <BsRobot />,      name: "IA / LLMs" },
+  { icon: <SiTailwindcss />,name: "Tailwind CSS" },
+  { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <SiGit />,        name: "Git" },
+  { icon: <SiSelenium />,   name: "Automação" },
 ]
 
 const FILTER_TABS = [
@@ -429,7 +431,7 @@ export default function Home() {
         <div className="skills-grid">
           {skills.map((s) => (
             <div key={s.name} className="skill-card" data-fade="">
-              <span className="skill-glyph">{s.glyph}</span>
+              <span className="skill-icon">{s.icon}</span>
               <span className="skill-name">{s.name}</span>
             </div>
           ))}

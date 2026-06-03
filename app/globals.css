@@ -534,16 +534,20 @@
     box-shadow: 0 0 28px rgba(201, 169, 110, 0.14), inset 0 0 18px rgba(201, 169, 110, 0.04);
     transform: translateY(-5px);
   }
-  .skill-glyph {
-    font-family: var(--font-cinzel, Georgia, serif);
-    font-size: 1.05rem;
+  .skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
     color: #c9a96e;
     opacity: 0.5;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
     line-height: 1;
-    letter-spacing: 0.04em;
   }
-  .skill-card:hover .skill-glyph { opacity: 1; }
+  .skill-card:hover .skill-icon {
+    opacity: 1;
+    transform: scale(1.1);
+  }
   .skill-name {
     font-size: 0.75rem;
     font-weight: 500;
