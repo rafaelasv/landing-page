@@ -392,6 +392,10 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "0", flex: 1 }}>
             <div className="sobre-card" data-fade="">
+              <div className="corner corner-tl" />
+              <div className="corner corner-tr" />
+              <div className="corner corner-bl" />
+              <div className="corner corner-br" />
               <p>Sou <span className="hl">Rafaela Tavares</span>, desenvolvedora frontend apaixonada por criar interfaces que encantam — onde cada pixel carrega intenção e cada interação conta uma história.</p>
               <p>Minha magia acontece na interseção entre <span className="hl">design e tecnologia</span>. Construo com React, Next.js e TypeScript pela paixão. Automatizo com Python e Node.js pela eficiência. Integro IA porque o futuro não espera.</p>
               <p>Baseada no Brasil. Disponível para o mundo.</p>
