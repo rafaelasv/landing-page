@@ -528,26 +528,55 @@ export default function Home() {
         <div className={`owl-msg${owlMsgVisible ? " show" : ""}`}>
           &#10022;&ensp;Nevermore&ensp;&#10022;
         </div>
-        <svg viewBox="0 0 56 68" width="42" height="51" fill="none">
-          <text className="owl-star-1" x="-2" y="18" fill="#c9a96e" fontSize="8" fontFamily="serif">&#x2726;</text>
-          <text className="owl-star-2" x="46" y="10" fill="#c9a96e" fontSize="5" fontFamily="serif">&#x2726;</text>
-          <text className="owl-star-3" x="50" y="52" fill="#c9a96e" fontSize="4" fontFamily="serif">&#x2726;</text>
-          <path d="M22,56 C18,60 14,65 16,67 C20,63 26,59 28,55" fill="#1a0d2e" stroke="#c9a96e" strokeWidth="0.9" strokeLinejoin="round" />
-          <ellipse cx="23" cy="40" rx="13" ry="17" transform="rotate(-6,23,40)" fill="#1a0d2e" stroke="#c9a96e" strokeWidth="1.2" />
-          <path d="M11,33 C15,29 21,27 27,29" stroke="#9d4edd" strokeWidth="0.8" opacity="0.35" fill="none" />
-          <path d="M10,40 C14,37 21,36 28,38" stroke="#9d4edd" strokeWidth="0.65" opacity="0.22" fill="none" />
-          <circle cx="21" cy="16" r="11" fill="#1a0d2e" stroke="#c9a96e" strokeWidth="1.2" />
-          <rect x="11" y="22" width="20" height="7" fill="#1a0d2e" />
-          <path d="M30,12 C35,10 43,13 45,16 C43,19 38,20 31,18 C30,16 30,12 30,12Z" fill="#c9a96e" opacity="0.8" />
-          <circle className="owl-eye" cx="26" cy="14" r="4.5" fill="#c9a96e" />
-          <circle cx="26" cy="14" r="2.5" fill="#0f0719" />
-          <circle cx="27" cy="13" r="1.4" fill="white" opacity="0.92" />
-          <line x1="15" y1="55" x2="9"  y2="62" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
-          <line x1="15" y1="55" x2="15" y2="63" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
-          <line x1="15" y1="55" x2="21" y2="62" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
-          <line x1="27" y1="55" x2="21" y2="62" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
-          <line x1="27" y1="55" x2="27" y2="63" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
-          <line x1="27" y1="55" x2="33" y2="62" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" />
+        <svg viewBox="0 0 80 72" width="64" height="58" fill="none">
+          <text className="owl-star-1" x="1"  y="16" fill="#c9a96e" fontSize="7" fontFamily="serif">&#x2726;</text>
+          <text className="owl-star-2" x="69" y="10" fill="#c9a96e" fontSize="5" fontFamily="serif">&#x2726;</text>
+          <text className="owl-star-3" x="74" y="52" fill="#c9a96e" fontSize="4" fontFamily="serif">&#x2726;</text>
+          {/* upper left wing */}
+          <path d="M40,29 C36,20 24,7 9,10 C3,13 3,24 9,31 C17,40 31,38 40,33Z"
+                fill="rgba(100,40,180,0.28)" stroke="#c9a96e" strokeWidth="1.4" strokeLinejoin="round"/>
+          <circle cx="20" cy="20" r="8"   fill="none" stroke="#c9a96e" strokeWidth="0.8" opacity="0.6"/>
+          <circle cx="20" cy="20" r="4"   fill="none" stroke="#c9a96e" strokeWidth="0.6" opacity="0.5"/>
+          <circle cx="20" cy="20" r="1.8" fill="#c9a96e" opacity="0.8"/>
+          <line x1="20" y1="12" x2="20" y2="28" stroke="#c9a96e" strokeWidth="0.5" opacity="0.35"/>
+          <line x1="12" y1="20" x2="28" y2="20" stroke="#c9a96e" strokeWidth="0.5" opacity="0.35"/>
+          <path d="M38,31 C32,27 22,19 15,13" stroke="#c9a96e" strokeWidth="0.6" opacity="0.4" fill="none"/>
+          <path d="M37,33 C30,30 22,26 17,22" stroke="#c9a96e" strokeWidth="0.5" opacity="0.28" fill="none"/>
+          {/* upper right wing */}
+          <path d="M40,29 C44,20 56,7 71,10 C77,13 77,24 71,31 C63,40 49,38 40,33Z"
+                fill="rgba(100,40,180,0.28)" stroke="#c9a96e" strokeWidth="1.4" strokeLinejoin="round"/>
+          <circle cx="60" cy="20" r="8"   fill="none" stroke="#c9a96e" strokeWidth="0.8" opacity="0.6"/>
+          <circle cx="60" cy="20" r="4"   fill="none" stroke="#c9a96e" strokeWidth="0.6" opacity="0.5"/>
+          <circle cx="60" cy="20" r="1.8" fill="#c9a96e" opacity="0.8"/>
+          <line x1="60" y1="12" x2="60" y2="28" stroke="#c9a96e" strokeWidth="0.5" opacity="0.35"/>
+          <line x1="52" y1="20" x2="68" y2="20" stroke="#c9a96e" strokeWidth="0.5" opacity="0.35"/>
+          <path d="M42,31 C48,27 58,19 65,13" stroke="#c9a96e" strokeWidth="0.6" opacity="0.4" fill="none"/>
+          <path d="M43,33 C50,30 58,26 63,22" stroke="#c9a96e" strokeWidth="0.5" opacity="0.28" fill="none"/>
+          {/* lower left wing */}
+          <path d="M40,37 C36,43 26,53 14,57 C8,59 8,65 16,63 C26,60 37,49 40,41Z"
+                fill="rgba(130,50,200,0.22)" stroke="#c9a96e" strokeWidth="1.2" strokeLinejoin="round"/>
+          <circle cx="24" cy="52" r="3.5" fill="none" stroke="#c9a96e" strokeWidth="0.7" opacity="0.55"/>
+          <circle cx="24" cy="52" r="1.4" fill="#c9a96e" opacity="0.7"/>
+          {/* lower right wing */}
+          <path d="M40,37 C44,43 54,53 66,57 C72,59 72,65 64,63 C54,60 43,49 40,41Z"
+                fill="rgba(130,50,200,0.22)" stroke="#c9a96e" strokeWidth="1.2" strokeLinejoin="round"/>
+          <circle cx="56" cy="52" r="3.5" fill="none" stroke="#c9a96e" strokeWidth="0.7" opacity="0.55"/>
+          <circle cx="56" cy="52" r="1.4" fill="#c9a96e" opacity="0.7"/>
+          {/* body */}
+          <ellipse cx="40" cy="37" rx="2.8" ry="15" fill="#c9a96e" opacity="0.9"/>
+          <ellipse cx="40" cy="37" rx="1.5" ry="13" fill="#0f0719" opacity="0.75"/>
+          <circle cx="40" cy="32" r="3" fill="#c9a96e" opacity="0.6"/>
+          {/* head */}
+          <circle className="owl-eye" cx="40" cy="22" r="4.5" fill="#c9a96e" opacity="0.92"/>
+          <circle cx="40" cy="22" r="2.6" fill="#100820"/>
+          <circle cx="40.8" cy="21" r="1" fill="white" opacity="0.9"/>
+          {/* antennae */}
+          <path d="M38,18 C34,13 29,8 25,4" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" fill="none"/>
+          <circle cx="25" cy="4" r="2.8" fill="#c9a96e" opacity="0.92"/>
+          <circle cx="25" cy="4" r="1.3" fill="#9d4edd"/>
+          <path d="M42,18 C46,13 51,8 55,4" stroke="#c9a96e" strokeWidth="1.1" strokeLinecap="round" fill="none"/>
+          <circle cx="55" cy="4" r="2.8" fill="#c9a96e" opacity="0.92"/>
+          <circle cx="55" cy="4" r="1.3" fill="#9d4edd"/>
         </svg>
       </div>
 
