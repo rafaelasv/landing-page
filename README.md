@@ -1,29 +1,41 @@
-# Rafaela Tavares - Page
+# Rafaela Tavares — Portfolio
 
-Personal website built as my **first project using Node.js, Next.js, and React**.  
-This portfolio was an opportunity to have my first contact with these technologies and put into practice what I’m learning in web development.
-
-## Tech Stack
-
-- **Node.js** - Runtime environment
-- **Next.js** - React framework
-- **React** - UI library
+Portfolio pessoal com tema arcano/luxury, partículas douradas, animações de scroll reveal e easter egg interativo (coruja).
 
 ## Preview
 
-👉 [Acesse o site aqui](https://www.rafaelatavares.dev/)
+[rafaelatavares.dev](https://www.rafaelatavares.dev/)
+
+## Tech Stack
+
+- **Next.js 15** — App Router
+- **React 19** + **TypeScript**
+- **Tailwind CSS v4** — com estilos custom em `@layer components`
+- **pnpm** — gerenciador de pacotes
+
+## Seções
+
+| Seção | Descrição |
+|-------|-----------|
+| Hero | Apresentação com partículas douradas e rosa dos ventos SVG |
+| Sobre | Bio, foto com efeito blend e formação acadêmica |
+| Habilidades | Grid de skills com ícones (React, Python, IA, etc.) |
+| Projetos | Cards com filtro por categoria (Frontend, IA & Automação, Freelance) |
+| Cases | Automações e sistemas reais — problema, solução e resultado |
+| Contato | E-mail e redes sociais |
+
+## Mini-projetos internos
+
+- `/geradorqr` — Gerador de QR Code
+- `/senhas` — Gerador de senhas
+- `/relogio` — Relógio digital com fusos horários
 
 ## Getting Started
 
-1. Clone this repository
-2. Install dependencies with `npm install`
-3. Run the development server with `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+```bash
+pnpm install
+pnpm dev
+```
 
-
-## Features
-
-- Responsive design  
-- Modern UI  
-- First hands-on experience with React ecosystem  
+Acesse [http://localhost:3000](http://localhost:3000).
 
