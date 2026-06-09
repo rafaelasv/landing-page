@@ -77,6 +77,36 @@ const projects = [
   },
 ]
 
+const cases = [
+  {
+    num: "001",
+    title: "Infraestrutura de vendas — escola de idiomas",
+    client: "Cliente: escola de idiomas online · freelance",
+    problem: "Vendas e onboarding manuais: contratos por e-mail, cobranças no braço, nenhum fluxo automatizado.",
+    solution: "Sistema integrado com geração e assinatura automática de contratos, pagamento recorrente e bot de WhatsApp para onboarding de alunas.",
+    result: "Processo de entrada de aluna passou de manual para totalmente automatizado, do pagamento ao acesso.",
+    tech: ["Python", "n8n", "Webhooks", "Asaas", "Guru", "Assiny", "WhatsApp API", "Google AppScript"],
+  },
+  {
+    num: "002",
+    title: "Sistema de conteúdo e distribuição",
+    client: "Cliente: escola de idiomas online · freelance",
+    problem: "Produção de conteúdo descentralizada, sem identidade visual consistente e sem infraestrutura de distribuição.",
+    solution: "8 páginas de guias de conteúdo, páginas de link in bio para Instagram e TikTok, página de vendas de curso e pipeline automatizado de vídeo com marca d'água.",
+    result: "Canal de distribuição completo com identidade visual unificada e automação de produção de vídeo.",
+    tech: ["HTML/CSS", "JavaScript", "Google AppScript", "Automação de vídeo"],
+  },
+  {
+    num: "003",
+    title: "Automação de processos contábeis",
+    client: "Cliente: escritório de contabilidade · CLT",
+    problem: "Tarefas operacionais repetitivas consumindo ~1h por execução. Volume de tickets alto com perguntas recorrentes.",
+    solution: "Scripts Python para automação de tarefas recorrentes, agente de IA interno para escalar atendimento, documentação e tutoriais em vídeo.",
+    result: "Tempo de execução reduzido de 1h para 5 min. Redução de tickets repetitivos via documentação estruturada.",
+    tech: ["Python", "Selenium", "SQL", "LLMs / Agentes de IA", "ERPs (Bling, Tiny, Upseller)"],
+  },
+]
+
 const skills = [
   { icon: <SiReact />,      name: "React" },
   { icon: <SiNextdotjs />,  name: "Next.js" },
@@ -314,6 +344,7 @@ export default function Home() {
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#habilidades">Habilidades</a></li>
           <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#cases">Cases</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -482,6 +513,39 @@ export default function Home() {
                     Ver projeto &#8594;
                   </Link>
                 )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CASES ───────────────────────────── */}
+      <OrnamentalDivider />
+      <section id="cases" className="section-inner">
+        <p className="eyebrow" data-fade="">Cases</p>
+        <h2 data-fade="">Automações &amp; Sistemas</h2>
+        <div className="cases-grid">
+          {cases.map((c) => (
+            <div key={c.num} className="case-card" data-fade="">
+              <p className="case-num">{c.num}</p>
+              <h3 className="case-title">{c.title}</h3>
+              <p className="case-client">{c.client}</p>
+              <div className="case-body">
+                <div>
+                  <p className="case-block-label">Problema</p>
+                  <p className="case-block-text">{c.problem}</p>
+                </div>
+                <div>
+                  <p className="case-block-label">Solução</p>
+                  <p className="case-block-text">{c.solution}</p>
+                </div>
+                <div>
+                  <p className="case-block-label">Resultado</p>
+                  <p className="case-block-text">{c.result}</p>
+                </div>
+              </div>
+              <div className="tags">
+                {c.tech.map((t) => <span key={t} className="tag">{t}</span>)}
               </div>
             </div>
           ))}
