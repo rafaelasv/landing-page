@@ -20,8 +20,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Rafaela Tavares — Frontend & Automação",
-  description: "Portfolio de Rafaela Tavares, desenvolvedora frontend especializada em React, Next.js e TypeScript",
+  title: "Rafaela Tavares — Automação & Desenvolvimento",
+  description: "Portfólio de Rafaela Tavares — automação de processos, integrações, agentes de IA e desenvolvimento frontend.",
   icons: {
     icon: [
       {
