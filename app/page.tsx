@@ -193,8 +193,27 @@ export default function Home() {
   const [navScrolled, setNavScrolled]   = useState(false)
   const [owlStartled, setOwlStartled]   = useState(false)
   const [owlMsgVisible, setOwlMsgVisible] = useState(false)
+  const [theme, setTheme] = useState<"dark" | "light">("dark")
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const owlRef    = useRef<HTMLDivElement>(null)
+  const themeRef  = useRef(theme)
+  themeRef.current = theme
+
+  // Load saved theme
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("portfolio:theme")
+      if (saved === "light") setTheme("light")
+    } catch {}
+  }, [])
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark"
+      try { localStorage.setItem("portfolio:theme", next) } catch {}
+      return next
+    })
+  }, [])
 
   // Nav scroll effect
   useEffect(() => {
@@ -241,12 +260,17 @@ export default function Home() {
       particles.forEach((p, i) => {
         p.y += p.vy; p.x += p.vx; p.a -= p.da
         if (p.a <= 0) { particles[i] = mkP(); return }
+        const isLight = themeRef.current === "light"
+        const fillColor = isLight ? "#b07830" : "#c9a96e"
+        const glowColor = isLight ? "rgba(176,120,48,0.45)" : "rgba(201,169,110,0.7)"
         ctx!.beginPath()
         ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx!.fillStyle    = `rgba(201,169,110,${p.a})`
-        ctx!.shadowBlur   = 4
-        ctx!.shadowColor  = "#c9a96e"
+        ctx!.globalAlpha  = p.a * (isLight ? 0.6 : 1)
+        ctx!.fillStyle    = fillColor
+        ctx!.shadowBlur   = isLight ? 5 : 9
+        ctx!.shadowColor  = glowColor
         ctx!.fill()
+        ctx!.globalAlpha  = 1
       })
       rafId = requestAnimationFrame(loop)
     }
@@ -335,7 +359,7 @@ export default function Home() {
     : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <div className="arcane-page">
+    <div className="arcane-page" data-theme={theme}>
 
       {/* ── NAV ──────────────────────────────── */}
       <nav className={`arcane-nav${navScrolled ? " scrolled" : ""}`}>
@@ -346,6 +370,24 @@ export default function Home() {
           <li><a href="#projetos">Projetos</a></li>
           <li><a href="#cases">Cases</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li>
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar tema claro/escuro">
+              <svg className="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                <circle cx="12" cy="12" r="4.5"/>
+                <line x1="12" y1="2"  x2="12" y2="5"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="4.22"  y1="4.22"  x2="6.34"  y2="6.34"/>
+                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                <line x1="2"  y1="12" x2="5"  y2="12"/>
+                <line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+                <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+              </svg>
+              <svg className="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </button>
+          </li>
         </ul>
       </nav>
 
