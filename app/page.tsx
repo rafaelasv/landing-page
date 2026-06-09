@@ -358,7 +358,7 @@ export default function Home() {
         <div className="hero-inner">
           <p className="hero-pre">&#10022;&ensp;Portfólio&ensp;&#10022;</p>
           <h1 className="hero-name">RAFAELA<br />TAVARES</h1>
-          <p className="hero-role">Desenvolvedora Frontend &amp; Automação</p>
+          <p className="hero-role">Automação &amp; Desenvolvimento</p>
           <div className="hero-btns">
             <a href="#projetos" className="arcane-btn btn-fill">Ver projetos</a>
             <a href="#contato"  className="arcane-btn btn-outline">Contato</a>
