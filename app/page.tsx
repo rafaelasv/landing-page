@@ -150,6 +150,52 @@ const FILTER_TABS = [
   { label: "Freelance", value: "freelance" },
 ]
 
+function CaseCard({ c }: { c: typeof cases[number] }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="case-card" data-fade="">
+      <p className="case-num">{c.num}</p>
+      <h3 className="case-title">{c.title}</h3>
+      <p className="case-summary">{c.summary}</p>
+      <p className="case-client">{c.client}</p>
+
+      <button
+        className="case-toggle"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        {open ? "Ocultar detalhes técnicos" : "Ver como funciona"}
+        <span className={`case-toggle-arrow ${open ? "is-open" : ""}`}>↓</span>
+      </button>
+
+      {open && (
+        <>
+          <div className="case-body">
+            <div>
+              <p className="case-block-label">Problema</p>
+              <p className="case-block-text">{c.problem}</p>
+            </div>
+            <div>
+              <p className="case-block-label">Solução</p>
+              <p className="case-block-text">{c.solution}</p>
+            </div>
+            <div>
+              <p className="case-block-label">Resultado</p>
+              <p className="case-block-text">{c.result}</p>
+            </div>
+          </div>
+          <div className="tags">
+            {c.tech.map((t) => (
+              <span key={t} className="tag">{t}</span>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 function CompassRose() {
   return (
     <svg className="arcane-rose" viewBox="0 0 600 600" fill="none" aria-hidden="true">
@@ -590,29 +636,7 @@ export default function Home() {
         <h2 data-fade="">Automações &amp; Sistemas</h2>
         <div className="cases-grid">
           {cases.map((c) => (
-            <div key={c.num} className="case-card" data-fade="">
-              <p className="case-num">{c.num}</p>
-              <h3 className="case-title">{c.title}</h3>
-              <p className="case-summary">{c.summary}</p>
-              <p className="case-client">{c.client}</p>
-              <div className="case-body">
-                <div>
-                  <p className="case-block-label">Problema</p>
-                  <p className="case-block-text">{c.problem}</p>
-                </div>
-                <div>
-                  <p className="case-block-label">Solução</p>
-                  <p className="case-block-text">{c.solution}</p>
-                </div>
-                <div>
-                  <p className="case-block-label">Resultado</p>
-                  <p className="case-block-text">{c.result}</p>
-                </div>
-              </div>
-              <div className="tags">
-                {c.tech.map((t) => <span key={t} className="tag">{t}</span>)}
-              </div>
-            </div>
+            <CaseCard key={c.num} c={c} />
           ))}
         </div>
       </section>
