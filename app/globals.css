@@ -758,6 +758,15 @@
     color: var(--a-text);
     margin: 0 0 0.3rem;
   }
+  .case-summary {
+    font-family: var(--font-body, inherit);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    opacity: 0.85;
+    margin: 0.5rem 0 1rem;
+    max-width: 56ch;
+  }
   .case-client {
     font-size: 0.7rem;
     letter-spacing: 0.1em;

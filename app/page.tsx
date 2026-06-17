@@ -81,7 +81,8 @@ const cases = [
   {
     num: "001",
     title: "Infraestrutura de vendas — escola de idiomas",
-    client: "Cliente: escola de idiomas online · freelance",
+    summary: "Sistema que automatizou toda a entrada de uma aluna nova: do pagamento ao primeiro contato no WhatsApp.",
+    client: "escola de idiomas online · freelance",
     problem: "Vendas e onboarding manuais: contratos por e-mail, cobranças no braço, nenhum fluxo automatizado.",
     solution: "Sistema integrado com geração e assinatura automática de contratos, pagamento recorrente e bot de WhatsApp para onboarding de alunas.",
     result: "Processo de entrada de aluna passou de manual para totalmente automatizado, do pagamento ao acesso.",
@@ -90,7 +91,8 @@ const cases = [
   {
     num: "002",
     title: "Sistema de conteúdo e distribuição",
-    client: "Cliente: escola de idiomas online · freelance",
+    summary: "Estrutura que deu identidade visual e organização à produção de conteúdo de uma marca com milhares de seguidores.",
+    client: "escola de idiomas online · freelance",
     problem: "Produção de conteúdo descentralizada, sem identidade visual consistente e sem infraestrutura de distribuição.",
     solution: "8 páginas de guias de conteúdo, páginas de link in bio para Instagram e TikTok, página de vendas de curso e pipeline automatizado de vídeo com marca d'água.",
     result: "Canal de distribuição completo com identidade visual unificada e automação de produção de vídeo.",
@@ -99,11 +101,32 @@ const cases = [
   {
     num: "003",
     title: "Automação de processos contábeis",
-    client: "Cliente: escritório de contabilidade · CLT",
+    summary: "Tarefas que tomavam 1 hora do time passaram a ser resolvidas em 5 minutos, sem intervenção manual.",
+    client: "escritório de contabilidade · CLT",
     problem: "Tarefas operacionais repetitivas consumindo ~1h por execução. Volume de tickets alto com perguntas recorrentes.",
     solution: "Scripts Python para automação de tarefas recorrentes, agente de IA interno para escalar atendimento, documentação e tutoriais em vídeo.",
     result: "Tempo de execução reduzido de 1h para 5 min. Redução de tickets repetitivos via documentação estruturada.",
     tech: ["Python", "Selenium", "SQL", "LLMs / Agentes de IA", "ERPs (Bling, Tiny, Upseller)"],
+  },
+  {
+    num: "004",
+    title: "Sistema de comunicação e alertas via IA",
+    summary: "A equipe parou de checar grupos de WhatsApp e planilhas na mão — os avisos certos chegam sozinhos, na hora certa.",
+    client: "escola de idiomas online · freelance",
+    problem: "Equipe dependia de checagem manual de grupos de WhatsApp, planilhas de tráfego e formulários — gerando atraso na resposta a inadimplência, leads e aulas experimentais.",
+    solution: "Rede de automações com IA: leitura e resumo diário de 6 grupos de WhatsApp via Claude Code CLI, sequência automática de cobrança por 7 dias (cartão vs boleto), nivelamento de alunas por IA (Gemini) com mensagem personalizada, e alertas automáticos de aulas experimentais e tráfego diário direto nos grupos do time.",
+    result: "Equipe deixou de checar manualmente grupos e planilhas — relatórios e alertas chegam sozinhos, no horário certo, sem intervenção humana.",
+    tech: ["Node.js", "Claude Code CLI", "Gemini API", "Google Apps Script", "node-cron", "Railway", "WhatsApp API"],
+  },
+  {
+    num: "005",
+    title: "Distribuição multi-plataforma de conteúdo",
+    summary: "O mesmo conteúdo passou a alcançar Instagram, TikTok e Pinterest de forma automática, sem trabalho repetido.",
+    client: "escola de idiomas online · freelance",
+    problem: "Conteúdo de 80k seguidores no Instagram ficava restrito a uma única rede, sem aproveitamento em TikTok e Pinterest, e sem canal direto de engajamento.",
+    solution: "Pipeline de republicação automática do Instagram para o Pinterest via Make, sistema de organização e cronograma de Reels para upload no TikTok, e canal de transmissão no Instagram com entrada automática via ManyChat.",
+    result: "Conteúdo passou a alcançar três plataformas a partir de uma única produção, com canal de transmissão ativo para engajamento direto da base de seguidoras.",
+    tech: ["Make", "Python", "gallery-dl", "ManyChat", "Instagram API", "Pinterest"],
   },
 ]
 
@@ -571,6 +594,7 @@ export default function Home() {
             <div key={c.num} className="case-card" data-fade="">
               <p className="case-num">{c.num}</p>
               <h3 className="case-title">{c.title}</h3>
+              <p className="case-summary">{c.summary}</p>
               <p className="case-client">{c.client}</p>
               <div className="case-body">
                 <div>
