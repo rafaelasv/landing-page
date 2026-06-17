@@ -492,9 +492,8 @@ export default function Home() {
               <div className="corner corner-tr" />
               <div className="corner corner-bl" />
               <div className="corner corner-br" />
-              <p>Sou <span className="hl">Rafaela Tavares</span>, desenvolvedora frontend apaixonada por criar interfaces que encantam — onde cada pixel carrega intenção e cada interação conta uma história.</p>
+              <p>Sou <span className="hl">Rafaela Tavares</span>, desenvolvedora apaixonada por criar interfaces que encantam — onde cada pixel carrega intenção e cada interação conta uma história.</p>
               <p>Minha magia acontece na interseção entre <span className="hl">design e tecnologia</span>. Automatizo processos com Python, n8n e agentes de IA pela eficiência. Construo interfaces com React e Next.js pela paixão. Integro sistemas porque o negócio não espera.</p>
-              <p>Baseada no Brasil. Disponível para o mundo.</p>
             </div>
             <div className="edu-grid" data-fade="">
               <div className="edu-card">
