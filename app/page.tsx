@@ -645,7 +645,7 @@ export default function Home() {
 
       {/* ── FOOTER ───────────────────────────── */}
       <footer className="arcane-footer">
-        <p>&#10022;&ensp;Rafaela Tavares &middot; 2026 &middot; Feito com código e feitiçaria&ensp;&#10022;</p>
+        <p>&#10022;&ensp;Rafaela Tavares &middot; 2026 &middot; Feito com código&ensp;&#10022;</p>
       </footer>
 
       {/* ── OWL (easter egg) ─────────────────── */}
