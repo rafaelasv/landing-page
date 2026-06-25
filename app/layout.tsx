@@ -20,12 +20,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Rafaela Tavares — Automação & Desenvolvimento",
-  description: "Portfólio de Rafaela Tavares — automação de processos, integrações, agentes de IA e desenvolvimento frontend.",
+  title: "Rafaela Tavares — Frontend & Automação",
+  description: "Portfólio de Rafaela Tavares — interfaces React/Next.js, automação de processos e integração com IA.",
   icons: {
     icon: [
       {
-        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c9a96e'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' fill='%230f0719' text-anchor='middle'>RT</text></svg>",
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%239d4edd'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' fill='%23ffffff' text-anchor='middle'>RT</text></svg>",
         type: "image/svg+xml",
       },
     ],
