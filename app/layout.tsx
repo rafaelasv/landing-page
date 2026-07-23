@@ -1,22 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Cinzel, Inter } from "next/font/google"
+import { Newsreader, Courier_Prime } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const cinzel = Cinzel({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cinzel",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
 })
 
-const inter = Inter({
+const courier = Courier_Prime({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "700"],
+  variable: "--font-courier",
 })
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%239d4edd'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' fill='%23ffffff' text-anchor='middle'>RT</text></svg>",
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231c1023'/><text x='50' y='68' font-family='Georgia,serif' font-style='italic' font-size='58' fill='%23c9a7e0' text-anchor='middle'>r</text></svg>",
         type: "image/svg+xml",
       },
     ],
@@ -39,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${GeistSans.variable} ${GeistMono.variable} ${cinzel.variable} ${inter.variable} antialiased`}>
+      <body className={`${newsreader.variable} ${courier.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <script

@@ -76,24 +76,7 @@ const projects = [
 ]
 
 export default function Home() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark")
   const [navScrolled, setNavScrolled] = useState(false)
-
-  // Load saved theme
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("portfolio:theme")
-      if (saved === "light") setTheme("light")
-    } catch {}
-  }, [])
-
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark"
-      try { localStorage.setItem("portfolio:theme", next) } catch {}
-      return next
-    })
-  }
 
   // Nav scroll + progress bar
   useEffect(() => {
@@ -123,31 +106,15 @@ export default function Home() {
     return () => obs.disconnect()
   }, [])
 
-  // Stack chips stagger
-  useEffect(() => {
-    const grid = document.querySelector(".stack-grid")
-    if (!grid) return
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in")
-          obs.unobserve(entry.target)
-        }
-      })
-    }, { threshold: 0.12 })
-    obs.observe(grid)
-    return () => obs.disconnect()
-  }, [])
-
   return (
-    <div className="portfolio-page" data-theme={theme}>
+    <div className="portfolio-page">
       <div className="progress" id="progress" />
 
       {/* NAV */}
       <nav id="nav" className={navScrolled ? "scrolled" : ""}>
         <div className="wrap">
           <a href="#hero" className="logo">
-            <span className="mark">✦</span> rafaela<span className="logo-dim">.tavares</span>
+            rafaela<i style={{ color: "var(--accent)" }}>.tavares</i>
           </a>
           <div className="nav-right">
             <ul className="nav-links">
@@ -157,80 +124,46 @@ export default function Home() {
               <li><Link href="/cases">cases</Link></li>
               <li><a href="#contato">contato</a></li>
             </ul>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar tema">
-              <svg className="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                <circle cx="12" cy="12" r="4.5"/>
-                <line x1="12" y1="2" x2="12" y2="5"/>
-                <line x1="12" y1="19" x2="12" y2="22"/>
-                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
-                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
-                <line x1="2" y1="12" x2="5" y2="12"/>
-                <line x1="19" y1="12" x2="22" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
-                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
-              </svg>
-              <svg className="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            </button>
           </div>
         </div>
       </nav>
 
       {/* HERO */}
       <section id="hero">
-        <div className="aurora a1" />
-        <div className="aurora a2" />
+        <div className="postmark"><span className="mono">23 . 07 . 26</span><span className="mono">PORTFÓLIO PROOF</span></div>
+        <div className="sticker" style={{ top: "96px", right: "64px", width: "120px", transform: "rotate(-8deg)" }}>
+          <img src="/stickers/sticker-sparkles.png" alt="" />
+        </div>
+        <div className="sticker" style={{ bottom: "16px", left: "70px", width: "96px", transform: "rotate(6deg)" }}>
+          <img src="/stickers/sticker-star.png" alt="" />
+        </div>
         <div className="wrap">
           <div className="hero-grid">
             <div className="hero-left">
-              <div className="status">
-                <span className="dot" /> Disponível para novos projetos
-              </div>
               <h1 className="headline">
-                Interfaces que <span className="gold">encantam</span> e automações que economizam <span className="gold">horas</span>.
+                Interfaces que <i>encantam</i> e automações que economizam <i>horas</i>.
               </h1>
               <p className="hero-sub">
                 Desenvolvedora frontend com foco em produto. Construo experiências limpas em React e Next.js — e automatizo o trabalho repetitivo com Python.
               </p>
-              <p className="hero-id mono">
-                Rafaela Tavares · Frontend &amp; Automação · Brasil / Remoto
-              </p>
-              <div className="btns" style={{ marginTop: "1.6rem" }}>
+              <div className="btns">
                 <a href="#projetos" className="btn btn-fill">
-                  Ver projetos <span className="arr">→</span>
+                  ver projetos <span className="arr">→</span>
                 </a>
-                <a href="#contato" className="btn btn-ghost">Falar comigo</a>
+                <a href="#contato" className="btn">falar comigo</a>
               </div>
             </div>
             <div className="hero-right">
-              <div className="spec">
-                <div className="spec-head">
-                  <span className="tl"><i /><i /><i /></span>
-                  <span className="path">~/rafaela</span>
-                </div>
-                <div className="spec-body">
-                  <div className="spec-row">
-                    <span className="k">foco</span>
-                    <span className="v">Frontend · UI &amp; produto</span>
-                  </div>
-                  <div className="spec-row">
-                    <span className="k">stack</span>
-                    <span className="v"><span className="accent">React</span> · Next.js · TypeScript</span>
-                  </div>
-                  <div className="spec-row">
-                    <span className="k">extra</span>
-                    <span className="v">Python · Automação · IA</span>
-                  </div>
-                  <div className="spec-row">
-                    <span className="k">local</span>
-                    <span className="v">Brasil · remoto</span>
-                  </div>
-                  <div className="spec-row">
-                    <span className="k">status</span>
-                    <span className="v"><span className="ok">● disponível</span></span>
-                  </div>
-                </div>
+              <div className="hero-disco">
+                <img src="/stickers/disco-ball.png" alt="globo de espelhos" />
+              </div>
+              <div className="ticket">
+                <div className="tt">rafaela tavares</div>
+                <div className="row"><span>foco</span><b>frontend · produto</b></div>
+                <div className="row"><span>stack</span><b>react · next.js · ts</b></div>
+                <div className="row"><span>extra</span><b>python · automação</b></div>
+                <div className="row"><span>local</span><b>brasil · remoto</b></div>
+                <div className="row"><span>status</span><b className="ok">● disponível</b></div>
               </div>
             </div>
           </div>
@@ -241,14 +174,15 @@ export default function Home() {
 
       {/* SOBRE */}
       <section id="sobre">
+        <div className="sticker" style={{ top: "14px", right: "84px", width: "104px", transform: "rotate(-4deg)" }}>
+          <img src="/stickers/sticker-hearts.png" alt="" />
+        </div>
         <div className="wrap">
           <p className="eyebrow fade"><span className="idx">01</span> Sobre</p>
           <div className="sobre-grid fade">
-            <img
-              src="/images/sobremim.jpg"
-              alt="Rafaela Tavares"
-              className="sobre-photo"
-            />
+            <div className="sobre-photo-frame">
+              <img src="/images/sobremim.jpg" alt="Rafaela Tavares" />
+            </div>
             <div className="sobre-text">
               <p>
                 Sou <strong>Rafaela Tavares</strong>, desenvolvedora frontend que pensa em produto antes de pensar em pixel. Gosto de interfaces que são óbvias de usar e bonitas de olhar — onde cada decisão tem um motivo.
@@ -279,6 +213,9 @@ export default function Home() {
 
       {/* STACK */}
       <section id="stack">
+        <div className="sticker" style={{ top: "10px", left: "70px", width: "92px", transform: "rotate(5deg)" }}>
+          <img src="/stickers/sticker-exclamation.png" alt="" />
+        </div>
         <div className="wrap">
           <p className="eyebrow fade"><span className="idx">02</span> Stack</p>
           <div className="stack-grid fade">
@@ -327,6 +264,12 @@ export default function Home() {
 
       {/* PROJETOS */}
       <section id="projetos">
+        <div className="sticker" style={{ bottom: "14px", right: "96px", width: "100px", transform: "rotate(-6deg)" }}>
+          <img src="/stickers/sticker-star.png" alt="" />
+        </div>
+        <div className="sticker" style={{ top: "6px", right: "180px", width: "90px", transform: "rotate(7deg)" }}>
+          <img src="/stickers/sticker-crow.png" alt="" />
+        </div>
         <div className="wrap">
           <div className="sec-head">
             <p className="eyebrow fade"><span className="idx">03</span> Projetos selecionados</p>
@@ -372,6 +315,9 @@ export default function Home() {
 
       {/* CONTATO */}
       <section id="contato">
+        <div className="sticker" style={{ bottom: "20px", left: "60px", width: "100px", transform: "rotate(4deg)" }}>
+          <img src="/stickers/sticker-sparkles.png" alt="" />
+        </div>
         <div className="wrap">
           <p className="eyebrow fade"><span className="idx">04</span> Contato</p>
           <h2 className="contact-head fade">
@@ -415,10 +361,10 @@ export default function Home() {
       {/* FOOTER */}
       <footer>
         <div className="wrap">
-          <span className="mono"><span className="mark">✦</span> Rafaela Tavares — 2026</span>
-          <span className="mono">
-            Construído com cuidado e{" "}
+          <span className="mono">rafaela tavares — 2026</span>
+          <span className="mono" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <a href="#hero">de volta ao topo ↑</a>
+            <img src="/stickers/sticker-rabbit.png" alt="" style={{ width: "40px", transform: "rotate(-6deg)" }} />
           </span>
         </div>
       </footer>

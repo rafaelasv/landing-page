@@ -203,24 +203,8 @@ const cases = [
 ]
 
 export default function Cases() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark")
   const [navScrolled, setNavScrolled] = useState(false)
   const [activeCase, setActiveCase] = useState("")
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("portfolio:theme")
-      if (saved === "light") setTheme("light")
-    } catch {}
-  }, [])
-
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark"
-      try { localStorage.setItem("portfolio:theme", next) } catch {}
-      return next
-    })
-  }
 
   // Nav scroll + progress
   useEffect(() => {
@@ -263,14 +247,14 @@ export default function Cases() {
   }, [])
 
   return (
-    <div className="cases-page" data-theme={theme}>
+    <div className="cases-page">
       <div className="progress" id="progress" />
 
       {/* NAV */}
       <nav id="nav" className={navScrolled ? "scrolled" : ""}>
         <div className="wrap">
           <Link href="/" className="logo">
-            <span className="mark">✦</span> rafaela<span className="logo-dim">.tavares</span>
+            rafaela<i style={{ color: "var(--accent)" }}>.tavares</i>
           </Link>
           <div className="nav-right">
             <ul className="nav-links">
@@ -280,29 +264,13 @@ export default function Cases() {
               <li><a href="#" className="active">cases</a></li>
               <li><Link href="/#contato">contato</Link></li>
             </ul>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar tema">
-              <svg className="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                <circle cx="12" cy="12" r="4.5"/>
-                <line x1="12" y1="2" x2="12" y2="5"/>
-                <line x1="12" y1="19" x2="12" y2="22"/>
-                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
-                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
-                <line x1="2" y1="12" x2="5" y2="12"/>
-                <line x1="19" y1="12" x2="22" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
-                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
-              </svg>
-              <svg className="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            </button>
           </div>
         </div>
       </nav>
 
       {/* INTRO */}
       <section id="intro">
-        <div className="aurora a1" />
+        <div className="postmark"><span className="mono">23 . 07 . 26</span><span className="mono">CASE PROOF</span></div>
         <div className="wrap">
           <Link href="/" className="back-link">
             <span className="arr">←</span> voltar ao início
@@ -314,6 +282,9 @@ export default function Cases() {
           <p className="intro-sub">
             Cinco projetos destrinchados de ponta a ponta: o contexto, o problema real, as decisões que tomei no caminho e o que mudou no fim. Menos vitrine, mais processo.
           </p>
+        </div>
+        <div className="sticker" style={{ bottom: "8px", right: "70px", width: "90px", transform: "rotate(-5deg)" }}>
+          <img src="/stickers/sticker-hearts.png" alt="" />
         </div>
       </section>
 
@@ -333,8 +304,19 @@ export default function Cases() {
       </div>
 
       <main>
-        {cases.map((c) => (
+        {cases.map((c, ci) => {
+          const st = [
+            { src: "sticker-exclamation.png", style: { top: "12px", left: "60px", width: "80px", transform: "rotate(6deg)" } },
+            { src: "sticker-star.png", style: { top: "12px", right: "70px", width: "84px", transform: "rotate(-6deg)" } },
+            { src: "sticker-rabbit.png", style: { top: "12px", left: "60px", width: "84px", transform: "rotate(5deg)" } },
+            { src: "sticker-crow.png", style: { top: "12px", right: "70px", width: "78px", transform: "rotate(-4deg)" } },
+            { src: "sticker-bow.png", style: { top: "12px", left: "60px", width: "84px", transform: "rotate(6deg)" } },
+          ][ci % 5]
+          return (
           <section key={c.id} className="case" id={c.id}>
+            <div className="sticker" style={st.style}>
+              <img src={`/stickers/${st.src}`} alt="" />
+            </div>
             <div className="wrap">
               {/* Head */}
               <div className="case-head fade">
@@ -418,12 +400,15 @@ export default function Cases() {
               )}
             </div>
           </section>
-        ))}
+          )
+        })}
       </main>
 
       {/* CTA */}
       <section className="cta">
-        <div className="aurora a1" />
+        <div className="sticker" style={{ top: "14px", right: "90px", width: "70px", transform: "rotate(-8deg)" }}>
+          <img src="/stickers/sticker-crow.png" alt="" />
+        </div>
         <div className="wrap">
           <h2 className="fade">Gostou do <span className="gold">processo</span>?</h2>
           <p className="fade">
@@ -443,8 +428,11 @@ export default function Cases() {
       {/* FOOTER */}
       <footer>
         <div className="wrap">
-          <span className="mono"><span className="mark">✦</span> Rafaela Tavares — 2026</span>
-          <span className="mono"><a href="#intro">voltar ao topo ↑</a></span>
+          <span className="mono">rafaela tavares — 2026</span>
+          <span className="mono" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <a href="#intro">voltar ao topo ↑</a>
+            <img src="/stickers/sticker-sparkles.png" alt="" style={{ width: "36px", transform: "rotate(8deg)" }} />
+          </span>
         </div>
       </footer>
     </div>
