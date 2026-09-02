@@ -200,6 +200,45 @@ const cases = [
     ],
     links: [],
   },
+  {
+    id: "case-06",
+    num: "CASE 06",
+    kind: "Full Stack · IA · Automação",
+    title: "Plataforma de recrutamento com triagem por IA",
+    tagline: "De mensagens manuais no WhatsApp a um sistema completo: portal de vagas, agente de triagem e extração automática de currículos.",
+    meta: {
+      papel: "Desenvolvedora Full Stack & Arquiteta de Automação",
+      periodo: "2026 · em andamento",
+      tipo: "Freelance",
+      stack: "Next.js · PostgreSQL · n8n · DeepSeek · Redis",
+    },
+    contexto: "Uma empresa de recrutamento e estágios recebia candidatos por WhatsApp e fazia toda a triagem de forma manual — lendo mensagens, copiando dados, avaliando perfis um por um. Sem portal próprio, sem automação, sem estrutura para escalar. Cada vaga nova significava mais trabalho repetitivo para a equipe.",
+    problema: "Recrutadores faziam triagem por conversa no WhatsApp, copiavam dados de candidatos para planilhas na mão, e não tinham uma plataforma própria para publicar vagas ou receber candidaturas. O processo não escalava — cada candidato exigia atenção manual do início ao fim, e informações se perdiam entre mensagens.",
+    pull: "O recrutador recebia 30 mensagens no WhatsApp, lia uma por uma, pedia dados que o candidato já tinha mandado, e ainda copiava tudo pra planilha. Com 10 vagas abertas ao mesmo tempo, isso não funciona.",
+    steps: [
+      {
+        n: "01",
+        title: "Construí o portal de vagas do zero",
+        desc: "Plataforma web completa em Next.js com três áreas: pública (listagem de vagas com filtros sincronizados na URL, candidatura com upload de currículo), painel administrativo (dashboard com métricas, gestão de vagas, candidaturas e escolas parceiras) e painel da escola (solicitar vagas, acompanhar candidaturas). Autenticação com sessões separadas por perfil, PWA e SEO configurados.",
+      },
+      {
+        n: "02",
+        title: "Criei o agente de triagem no WhatsApp",
+        desc: "Agente conversacional que recebe o candidato no WhatsApp, identifica a vaga de interesse, conduz triagem com perguntas estruturadas e classifica automaticamente: apto, reprovado ou desistente. Usa DeepSeek com prompt few-shot, Redis para agrupar mensagens fragmentadas (debounce) e PostgreSQL para persistir o estado da conversa entre interações. Reengajamento automático: 24h sem resposta gera lembrete, 72h encerra como desistência.",
+      },
+      {
+        n: "03",
+        title: "Automatizei a extração de dados curriculares",
+        desc: "Sub-workflow acionado quando o candidato envia o currículo pelo WhatsApp. A IA extrai 18 campos estruturados (nome, contato, formação, experiências, habilidades) direto do texto do documento, sem intervenção humana — dados prontos para consulta no painel administrativo.",
+      },
+    ],
+    metrics: [
+      { n: "100%", l: "da triagem automatizada" },
+      { n: "18", l: "campos extraídos por currículo" },
+      { n: "3", l: "áreas do portal (pública, admin, escola)" },
+    ],
+    links: [],
+  },
 ]
 
 export default function Cases() {
@@ -280,7 +319,7 @@ export default function Cases() {
             Como eu penso — não só <span className="gold">o que eu entrego</span>.
           </h1>
           <p className="intro-sub">
-            Cinco projetos destrinchados de ponta a ponta: o contexto, o problema real, as decisões que tomei no caminho e o que mudou no fim. Menos vitrine, mais processo.
+            Seis projetos destrinchados de ponta a ponta: o contexto, o problema real, as decisões que tomei no caminho e o que mudou no fim. Menos vitrine, mais processo.
           </p>
         </div>
         <div className="sticker" style={{ bottom: "8px", right: "70px", width: "90px", transform: "rotate(-5deg)" }}>
