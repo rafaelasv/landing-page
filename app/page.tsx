@@ -5,8 +5,8 @@ import Link from "next/link"
 const projects = [
   {
     num: "001",
-    kind: "Full Stack · IA & Automação",
-    title: "Plataforma de recrutamento com triagem por IA",
+    kind: "IA · Automação",
+    title: "Agente de triagem de candidatos via WhatsApp",
     description: "Agente conversacional no WhatsApp que conduz a triagem de candidatos do primeiro contato à classificação automática (apto, reprovado ou desistente) — com extração de 18 campos curriculares por IA.",
     tech: ["Next.js", "PostgreSQL", "n8n", "DeepSeek", "Redis"],
     href: "/cases#case-06",
