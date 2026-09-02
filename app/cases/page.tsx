@@ -205,7 +205,7 @@ const cases = [
     num: "CASE 06",
     kind: "Full Stack · IA · Automação",
     title: "Plataforma de recrutamento com triagem por IA",
-    tagline: "De mensagens manuais no WhatsApp a um sistema completo: portal de vagas, agente de triagem e extração automática de currículos.",
+    tagline: "Agente conversacional no WhatsApp que conduz a triagem de candidatos de ponta a ponta — do primeiro contato à classificação automática, com extração de currículo por IA.",
     meta: {
       papel: "Desenvolvedora Full Stack & Automatizadora",
       periodo: "2026 · em andamento",
@@ -218,8 +218,8 @@ const cases = [
     steps: [
       {
         n: "01",
-        title: "Construí o portal de vagas do zero",
-        desc: "Plataforma web completa em Next.js com três áreas: pública (listagem de vagas com filtros sincronizados na URL, candidatura com upload de currículo), painel administrativo (dashboard com métricas, gestão de vagas, candidaturas e escolas parceiras) e painel da escola (solicitar vagas, acompanhar candidaturas). Autenticação com sessões separadas por perfil, PWA e SEO configurados.",
+        title: "Integrei o agente ao portal de vagas existente",
+        desc: "A empresa já tinha um portal de vagas. Adaptei e configurei a integração com o sistema de candidaturas para que o agente recebesse as vagas abertas em tempo real e conduzisse a triagem com base nos critérios de cada vaga.",
       },
       {
         n: "02",
@@ -235,7 +235,6 @@ const cases = [
     metrics: [
       { n: "100%", l: "da triagem automatizada — do contato à classificação" },
       { n: "18", l: "campos curriculares extraídos por IA, sem intervenção humana" },
-      { n: "3", l: "áreas autenticadas no portal (pública, admin, escola parceira)" },
       { n: "24h / 72h", l: "reengajamento automático: lembrete e encerramento por inatividade" },
     ],
     links: [],
