@@ -17,7 +17,7 @@ const cases = [
     },
     contexto: "Uma escola de idiomas online com fluxo de matrículas crescente operava todo o processo de forma manual — desde o envio de contratos por e-mail até a confirmação de pagamento feita na mão. Com o volume aumentando, o processo virou gargalo.",
     problema: "Vendas e onboarding inteiramente manuais: contratos enviados por e-mail, cobranças controladas numa planilha, nenhum fluxo automatizado. Cada nova aluna exigia ~1h de trabalho operacional da equipe.",
-    pull: "Cada matrícula nova era um processo de 1 hora. Com 20 alunas por mês, isso era meio turno de trabalho desperdiçado toda semana.",
+    pull: "Quando entrei no projeto, cada matrícula nova consumia cerca de uma hora de trabalho manual da equipe: enviar contrato, cobrar, confirmar pagamento, dar boas-vindas. Com 20 alunas por mês, era meio turno inteiro da semana gasto com processo, não com ensino.",
     steps: [
       {
         n: "01",
@@ -56,7 +56,7 @@ const cases = [
     },
     contexto: "Uma escola de idiomas com 80 mil seguidores no Instagram produzia conteúdo de forma descentralizada, sem guia visual, sem identidade consistente e sem estrutura de distribuição para outros canais.",
     problema: "Produção de conteúdo desorganizada, sem identidade visual definida e sem infraestrutura para publicar além do Instagram. Cada post era um esforço individual sem padrão.",
-    pull: "Com 80k seguidores, a marca tinha audiência mas não tinha sistema. O conteúdo sumia no feed sem deixar rastro nos outros canais.",
+    pull: "A marca tinha 80 mil seguidores e produzia conteúdo toda semana, mas cada post era feito sem guia — paleta, tipografia e tom mudavam de um carrossel pro outro. Nos outros canais, nada era publicado. O conteúdo morria no feed.",
     steps: [
       {
         n: "01",
@@ -75,9 +75,9 @@ const cases = [
       },
     ],
     metrics: [
-      { n: "8", l: "guias de conteúdo entregues" },
-      { n: "3", l: "páginas web criadas" },
-      { n: "auto", l: "marca d'água em vídeos" },
+      { n: "8 guias", l: "de identidade visual — paleta, tipografia, tom de voz e diretrizes por formato" },
+      { n: "3 páginas", l: "link in bio (Instagram e TikTok) + página de vendas do curso" },
+      { n: "automático", l: "marca d'água via Google AppScript antes de cada publicação" },
     ],
     links: [],
   },
@@ -95,7 +95,7 @@ const cases = [
     },
     contexto: "Escritório de contabilidade com volume alto de tarefas operacionais repetitivas: download de documentos fiscais, geração de relatórios, atendimento de dúvidas recorrentes. O time gastava horas por semana em trabalho que poderia ser automatizado.",
     problema: "Tarefas operacionais consumindo ~1h por execução. Volume alto de tickets com perguntas que tinham a mesma resposta. Documentação inexistente dificultava o treinamento de novos colaboradores.",
-    pull: "O time gastava uma hora inteira para executar tarefas que um script resolve em 5 minutos. Multiplica por 5 dias na semana.",
+    pull: "O time executava as mesmas tarefas todo dia — baixar NFS-e, puxar dados de ERPs, responder as mesmas dúvidas por ticket. Uma hora por execução, cinco dias por semana. Automatizar não era otimização, era óbvio.",
     steps: [
       {
         n: "01",
@@ -115,7 +115,7 @@ const cases = [
     ],
     metrics: [
       { n: "~1h → 5min", l: "tempo por execução" },
-      { n: "↓", l: "tickets de suporte repetitivos" },
+      { n: "agente de IA", l: "absorve tickets repetitivos com base nas FAQs internas" },
       { n: "0", l: "intervenção manual nas tarefas automatizadas" },
     ],
     links: [
@@ -129,14 +129,14 @@ const cases = [
     title: "Sistema de comunicação e alertas via IA",
     tagline: "A equipe parou de checar grupos e planilhas na mão — os avisos certos chegam sozinhos, na hora certa.",
     meta: {
-      papel: "Arquiteta de Automação",
+      papel: "Desenvolvedora & Automatizadora",
       periodo: "2024–2025 · contínuo",
       tipo: "Freelance",
       stack: "Node.js · Claude · Gemini · Railway",
     },
     contexto: "Escola de idiomas online com equipe distribuída que dependia de checagem manual de 6 grupos de WhatsApp, planilhas de tráfego e formulários de alunas para tomar decisões diárias — gerando atraso e sobrecarga.",
     problema: "Equipe dependia de checagem manual de grupos de WhatsApp, planilhas de tráfego e formulários — gerando atraso na resposta a inadimplência, leads e aulas experimentais. Informação crítica se perdia no ruído.",
-    pull: "Checar 6 grupos de WhatsApp toda manhã, ler planilhas e montar relatórios à mão não é trabalho — é desperdício de atenção. A equipe merecia ter isso automático.",
+    pull: "A equipe começava o dia checando 6 grupos de WhatsApp, cruzando com planilhas de tráfego e formulários de alunas — tudo na mão, antes de tomar qualquer decisão. Informação importante se perdia no meio do ruído.",
     steps: [
       {
         n: "01",
@@ -168,14 +168,14 @@ const cases = [
     title: "Distribuição multi-plataforma de conteúdo",
     tagline: "O mesmo conteúdo passou a alcançar Instagram, TikTok e Pinterest de forma automática, sem trabalho repetido.",
     meta: {
-      papel: "Arquiteta de Automação",
+      papel: "Desenvolvedora & Automatizadora",
       periodo: "2025 · contínuo",
       tipo: "Freelance",
       stack: "Make · Python · ManyChat · Instagram API",
     },
     contexto: "Escola de idiomas com 80k seguidores no Instagram e produção constante de conteúdo. Todo o material ficava restrito a uma plataforma, sem aproveitamento no TikTok e Pinterest, e sem canal direto de engajamento com a base.",
     problema: "Conteúdo de uma marca com 80k seguidores ficava preso no Instagram. TikTok e Pinterest existiam mas recebiam zero publicação. O time precisaria duplicar o trabalho para distribuir — o que nunca acontecia.",
-    pull: "Produzir conteúdo uma vez e publicar em um lugar só é desperdiçar 2/3 do alcance possível. Com o sistema certo, a mesma peça vai a três plataformas automaticamente.",
+    pull: "Todo o conteúdo era produzido pro Instagram e ficava só lá. TikTok e Pinterest existiam como perfis vazios. Publicar nos três significaria triplicar o trabalho — então ninguém publicava.",
     steps: [
       {
         n: "01",
@@ -194,9 +194,9 @@ const cases = [
       },
     ],
     metrics: [
-      { n: "3", l: "plataformas a partir de 1 produção" },
-      { n: "auto", l: "republicação Instagram → Pinterest" },
-      { n: "canal ativo", l: "de transmissão via ManyChat" },
+      { n: "Pinterest", l: "cada post do Instagram republicado automaticamente com título e descrição adaptados" },
+      { n: "TikTok", l: "pipeline de organização e upload em lote de Reels via gallery-dl + Python" },
+      { n: "Instagram", l: "canal de transmissão alimentado automaticamente via ManyChat a partir de DMs" },
     ],
     links: [],
   },
@@ -207,14 +207,14 @@ const cases = [
     title: "Plataforma de recrutamento com triagem por IA",
     tagline: "De mensagens manuais no WhatsApp a um sistema completo: portal de vagas, agente de triagem e extração automática de currículos.",
     meta: {
-      papel: "Desenvolvedora Full Stack & Arquiteta de Automação",
+      papel: "Desenvolvedora Full Stack & Automatizadora",
       periodo: "2026 · em andamento",
       tipo: "Freelance",
       stack: "Next.js · PostgreSQL · n8n · DeepSeek · Redis",
     },
     contexto: "Uma empresa de recrutamento e estágios recebia candidatos por WhatsApp e fazia toda a triagem de forma manual — lendo mensagens, copiando dados, avaliando perfis um por um. Sem portal próprio, sem automação, sem estrutura para escalar. Cada vaga nova significava mais trabalho repetitivo para a equipe.",
     problema: "Recrutadores faziam triagem por conversa no WhatsApp, copiavam dados de candidatos para planilhas na mão, e não tinham uma plataforma própria para publicar vagas ou receber candidaturas. O processo não escalava — cada candidato exigia atenção manual do início ao fim, e informações se perdiam entre mensagens.",
-    pull: "O recrutador recebia 30 mensagens no WhatsApp, lia uma por uma, pedia dados que o candidato já tinha mandado, e ainda copiava tudo pra planilha. Com 10 vagas abertas ao mesmo tempo, isso não funciona.",
+    pull: "O recrutador recebia dezenas de mensagens no WhatsApp, lia uma por uma, pedia dados que o candidato já tinha mandado, e copiava tudo pra planilha. Com várias vagas abertas ao mesmo tempo, o processo não escalava.",
     steps: [
       {
         n: "01",
@@ -233,9 +233,10 @@ const cases = [
       },
     ],
     metrics: [
-      { n: "100%", l: "da triagem automatizada" },
-      { n: "18", l: "campos extraídos por currículo" },
-      { n: "3", l: "áreas do portal (pública, admin, escola)" },
+      { n: "100%", l: "da triagem automatizada — do contato à classificação" },
+      { n: "18", l: "campos curriculares extraídos por IA, sem intervenção humana" },
+      { n: "3", l: "áreas autenticadas no portal (pública, admin, escola parceira)" },
+      { n: "24h / 72h", l: "reengajamento automático: lembrete e encerramento por inatividade" },
     ],
     links: [],
   },
@@ -321,6 +322,9 @@ export default function Cases() {
           <p className="intro-sub">
             Seis projetos destrinchados de ponta a ponta: o contexto, o problema real, as decisões que tomei no caminho e o que mudou no fim. Menos vitrine, mais processo.
           </p>
+          <p style={{ fontSize: "0.82rem", opacity: 0.5, marginTop: "1.25rem", maxWidth: "560px", lineHeight: "1.6" }}>
+            Os cases 01, 02, 04 e 05 fazem parte de um trabalho contínuo com a mesma cliente ao longo de dois anos — cada um resolvendo um problema diferente à medida que o negócio crescia.
+          </p>
         </div>
         <div className="sticker" style={{ bottom: "8px", right: "70px", width: "90px", transform: "rotate(-5deg)" }}>
           <img src="/stickers/sticker-hearts.png" alt="" />
@@ -395,7 +399,7 @@ export default function Cases() {
               <div className="block fade">
                 <div className="block-h">O problema</div>
                 <p>{c.problema}</p>
-                <div className="pull">&ldquo;{c.pull}&rdquo;</div>
+                <div className="pull">{c.pull}</div>
               </div>
 
               {/* Processo */}
