@@ -19,8 +19,8 @@ const courier = Courier_Prime({
 })
 
 export const metadata: Metadata = {
-  title: "Rafaela Tavares — Produto, Automação & IA",
-  description: "Portfólio de Rafaela Tavares — automação de processos, integração com IA e produtos de ponta a ponta, com frontend em React/Next.js.",
+  title: "Rafaela Tavares · Full-stack, Automação & IA",
+  description: "Portfólio de Rafaela Tavares. Desenvolvimento full-stack, automação de processos e integração com IA, com frontend em React/Next.js.",
   icons: {
     icon: [
       {

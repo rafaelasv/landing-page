@@ -151,10 +151,10 @@ export default function Home() {
           <div className="hero-grid">
             <div className="hero-left">
               <h1 className="headline">
-                Automações que economizam <i>horas</i> e produtos que funcionam de <i>ponta a ponta</i>.
+                Full-stack · automação · IA. Sistemas que funcionam de <i>ponta a ponta</i>.
               </h1>
               <p className="hero-sub">
-                Desenvolvedora de produto com foco em automação e IA. Construo sistemas end-to-end — do fluxo automatizado com Python e n8n à interface em React e Next.js.
+                Desenvolvedora full-stack com foco em automação e IA. Construo do backend à interface, com Python, Node.js e React, e automatizo o que consome tempo demais.
               </p>
               <div className="btns">
                 <a href="#projetos" className="btn btn-fill">
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
               <div className="ticket">
                 <div className="tt">rafaela tavares</div>
-                <div className="row"><span>foco</span><b>produto · automação · IA</b></div>
+                <div className="row"><span>foco</span><b>full-stack · automação · IA</b></div>
                 <div className="row"><span>stack</span><b>python · node · react</b></div>
                 <div className="row"><span>extra</span><b>n8n · llms · integrações</b></div>
                 <div className="row"><span>local</span><b>brasil · remoto</b></div>
@@ -195,7 +195,7 @@ export default function Home() {
             </div>
             <div className="sobre-text">
               <p>
-                Sou <strong>Rafaela Tavares</strong>, desenvolvedora que constrói produtos de ponta a ponta — de automações que economizam horas de trabalho manual a interfaces que são óbvias de usar. Gosto de resolver o problema de verdade, não só a parte visível dele.
+                Sou <strong>Rafaela Tavares</strong>, desenvolvedora full-stack. Construo de ponta a ponta: automações que economizam horas de trabalho manual, integrações com IA e interfaces que são óbvias de usar. Gosto de resolver o problema de verdade, não só a parte visível dele.
               </p>
               <p>
                 Trabalho na interseção entre <strong>design e engenharia</strong>: construo com React, Next.js e TypeScript, automatizo processos repetitivos com Python e Node, e integro IA quando ela resolve o problema de verdade — não só por estar na moda.
