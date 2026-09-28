@@ -164,9 +164,6 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-right">
-              <div className="hero-disco">
-                <img src="/stickers/disco-ball.png" alt="globo de espelhos" />
-              </div>
               <div className="ticket">
                 <div className="tt">rafaela tavares</div>
                 <div className="row"><span>foco</span><b>full-stack · automação · IA</b></div>
