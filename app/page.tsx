@@ -151,7 +151,7 @@ export default function Home() {
           <div className="hero-grid">
             <div className="hero-left">
               <h1 className="headline">
-                Full-stack · automação · IA. Sistemas que funcionam de <i>ponta a ponta</i>.
+                Do <i>backend</i> ao <i>frontend</i>, com automação e IA no meio.
               </h1>
               <p className="hero-sub">
                 Desenvolvedora full-stack com foco em automação e IA. Construo do backend à interface, com Python, Node.js e React, e automatizo o que consome tempo demais.
