@@ -151,10 +151,10 @@ export default function Home() {
           <div className="hero-grid">
             <div className="hero-left">
               <h1 className="headline">
-                Interfaces que <i>encantam</i> e automações que economizam <i>horas</i>.
+                Automações que economizam <i>horas</i> e produtos que funcionam de <i>ponta a ponta</i>.
               </h1>
               <p className="hero-sub">
-                Desenvolvedora frontend com foco em produto. Construo experiências limpas em React e Next.js — e automatizo o trabalho repetitivo com Python.
+                Desenvolvedora de produto com foco em automação e IA. Construo sistemas end-to-end — do fluxo automatizado com Python e n8n à interface em React e Next.js.
               </p>
               <div className="btns">
                 <a href="#projetos" className="btn btn-fill">
@@ -169,9 +169,9 @@ export default function Home() {
               </div>
               <div className="ticket">
                 <div className="tt">rafaela tavares</div>
-                <div className="row"><span>foco</span><b>frontend · produto</b></div>
-                <div className="row"><span>stack</span><b>react · next.js · ts</b></div>
-                <div className="row"><span>extra</span><b>python · automação</b></div>
+                <div className="row"><span>foco</span><b>produto · automação · IA</b></div>
+                <div className="row"><span>stack</span><b>python · node · react</b></div>
+                <div className="row"><span>extra</span><b>n8n · llms · integrações</b></div>
                 <div className="row"><span>local</span><b>brasil · remoto</b></div>
                 <div className="row"><span>status</span><b className="ok">● disponível</b></div>
               </div>
@@ -195,7 +195,7 @@ export default function Home() {
             </div>
             <div className="sobre-text">
               <p>
-                Sou <strong>Rafaela Tavares</strong>, desenvolvedora frontend que pensa em produto antes de pensar em pixel. Gosto de interfaces que são óbvias de usar e bonitas de olhar — onde cada decisão tem um motivo.
+                Sou <strong>Rafaela Tavares</strong>, desenvolvedora que constrói produtos de ponta a ponta — de automações que economizam horas de trabalho manual a interfaces que são óbvias de usar. Gosto de resolver o problema de verdade, não só a parte visível dele.
               </p>
               <p>
                 Trabalho na interseção entre <strong>design e engenharia</strong>: construo com React, Next.js e TypeScript, automatizo processos repetitivos com Python e Node, e integro IA quando ela resolve o problema de verdade — não só por estar na moda.
@@ -230,31 +230,30 @@ export default function Home() {
           <p className="eyebrow fade"><span className="idx">02</span> Stack</p>
           <div className="stack-grid fade">
             <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Frontend</div>
+              <div className="cat-h"><span className="idx">/</span> Automação &amp; IA</div>
               <div className="chips">
-                <span className="chip">React</span>
-                <span className="chip">Next.js</span>
-                <span className="chip">TypeScript</span>
-                <span className="chip">CSS</span>
-                <span className="chip">Tailwind</span>
+                <span className="chip">n8n</span>
+                <span className="chip">Make</span>
+                <span className="chip">Selenium</span>
+                <span className="chip">LLMs / IA</span>
               </div>
             </div>
             <div className="stack-cat">
               <div className="cat-h"><span className="idx">/</span> Backend &amp; Dados</div>
               <div className="chips">
-                <span className="chip">Node.js</span>
                 <span className="chip">Python</span>
+                <span className="chip">Node.js</span>
                 <span className="chip">PostgreSQL</span>
                 <span className="chip">REST APIs</span>
               </div>
             </div>
             <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Automação &amp; IA</div>
+              <div className="cat-h"><span className="idx">/</span> Frontend</div>
               <div className="chips">
-                <span className="chip">Selenium</span>
-                <span className="chip">n8n</span>
-                <span className="chip">Make</span>
-                <span className="chip">LLMs / IA</span>
+                <span className="chip">React</span>
+                <span className="chip">Next.js</span>
+                <span className="chip">TypeScript</span>
+                <span className="chip">Tailwind</span>
               </div>
             </div>
             <div className="stack-cat">
