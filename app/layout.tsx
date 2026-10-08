@@ -1,21 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Newsreader, Courier_Prime } from "next/font/google"
+import { Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const newsreader = Newsreader({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-serif",
 })
 
-const courier = Courier_Prime({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-courier",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex",
 })
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${newsreader.variable} ${courier.variable} antialiased`}>
+      <body className={`${instrumentSerif.variable} ${plexMono.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <script

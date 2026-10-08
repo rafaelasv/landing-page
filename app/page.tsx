@@ -1,378 +1,299 @@
-"use client"
-import { useState, useEffect } from "react"
 import Link from "next/link"
+import SiteHeader from "@/components/site-header"
 
-const projects = [
+type Project = {
+  num: string
+  cat: string
+  title: string
+  img: string
+  alt: string
+  desc: string
+  tags: string[]
+  link: { label: string; href: string; external: boolean }
+}
+
+const featured: Project[] = [
   {
     num: "001",
-    kind: "IA · Automação",
+    cat: "IA · Automação",
     title: "Agente de triagem de candidatos via WhatsApp",
-    description: "Agente conversacional no WhatsApp que conduz a triagem de candidatos do primeiro contato à classificação automática (apto, reprovado ou desistente) — com extração de 18 campos curriculares por IA.",
-    tech: ["Next.js", "PostgreSQL", "n8n", "DeepSeek", "Redis"],
-    href: "/cases#case-06",
-    external: false,
-    thumbnail: "/images/hub-escola.png",
+    img: "/images/hub-escola.png",
+    alt: "Agente de triagem de candidatos via WhatsApp",
+    desc: "Agente conversacional no WhatsApp que conduz a triagem de candidatos do primeiro contato à classificação automática (apto, reprovado ou desistente), com extração de 18 campos curriculares por IA. O portal de vagas foi adaptado a partir de uma base existente.",
+    tags: ["n8n", "Evolution API", "DeepSeek", "Redis", "PostgreSQL"],
+    link: { label: "ver case →", href: "/cases#case-06", external: false },
   },
   {
     num: "002",
-    kind: "Automação · Python",
-    title: "Automação de Download de NFS-e",
-    description: "Ferramenta com interface gráfica que baixa NFS-e do Portal Nacional para múltiplas empresas a partir de uma planilha — substituindo um processo manual de horas por alguns cliques.",
-    tech: ["Python", "Selenium", "openpyxl"],
-    href: "https://github.com/rafaelasv/baixa-nfse",
-    external: true,
-    thumbnail: "/images/baixa_nfse.png",
+    cat: "Automação · Python",
+    title: "Automação de download de NFS-e",
+    img: "/images/baixa_nfse.png",
+    alt: "Automação de download de NFS-e",
+    desc: "Ferramenta com interface gráfica que baixa NFS-e do Portal Nacional para múltiplas empresas a partir de uma planilha, substituindo um processo manual de horas por alguns cliques.",
+    tags: ["Python", "Selenium", "openpyxl"],
+    link: { label: "código no GitHub ↗", href: "https://github.com/rafaelasv/baixa-nfse", external: true },
   },
   {
     num: "003",
-    kind: "Freelance · Web",
-    title: "Scaldini Garcia Contabilidade",
-    description: "Redesign completo do site institucional, com foco em transmitir credibilidade e facilitar o contato com o escritório.",
-    tech: ["Wix"],
-    href: "https://www.scaldinigarcia.com.br/",
-    external: true,
-    thumbnail: "/images/scaldini-screenshot.png",
+    cat: "Freelance · React",
+    title: "Saigom Contabilidade",
+    img: "/images/saigom-screenshot.png",
+    alt: "Site da Saigom Contabilidade",
+    desc: "Site institucional desenvolvido para a Saigom Contabilidade, com design limpo e navegação direta.",
+    tags: ["React", "JavaScript"],
+    link: { label: "ver site ↗", href: "https://saigom-contabilidade.vercel.app/", external: true },
   },
   {
     num: "004",
-    kind: "Freelance · React",
-    title: "Saigom Contabilidade",
-    description: "Site institucional desenvolvido para a Saigom Contabilidade com design limpo e navegação direta.",
-    tech: ["React", "JavaScript"],
-    href: "https://saigom-contabilidade.vercel.app/",
-    external: true,
-    thumbnail: "/images/saigom-screenshot.png",
-  },
-  {
-    num: "005",
-    kind: "Frontend · React",
-    title: "O Bando Mágico",
-    description: "Site interativo em homenagem às calopsitas Jujuba, Theo e Yuki, com ilustrações em aquarela e um gerador de nomes. Um projeto pessoal pra explorar microinterações e identidade visual.",
-    tech: ["React", "Next.js", "Tailwind"],
-    href: "https://bando-magico.vercel.app/",
-    external: true,
-    thumbnail: "/images/bandomagico.png",
-  },
-  {
-    num: "006",
-    kind: "Frontend · React",
-    title: "Gerador de QR Code",
-    description: "App para gerar QR Codes a partir de texto ou URLs, com personalização e download. Foco em uma experiência rápida, acessível e sem fricção.",
-    tech: ["React", "Next.js", "Tailwind"],
-    href: "/geradorqr",
-    external: false,
-    thumbnail: "/images/geradorqr.png",
-  },
-  {
-    num: "007",
-    kind: "Frontend · React",
-    title: "Gerador de Senhas",
-    description: "Gerador de senhas seguras com controle de tamanho e complexidade. Foco em usabilidade e feedback visual imediato.",
-    tech: ["React", "Next.js", "Tailwind"],
-    href: "/senhas",
-    external: false,
-    thumbnail: "/images/geradorsenhas.png",
-  },
-  {
-    num: "008",
-    kind: "Frontend · React",
-    title: "Relógio Digital",
-    description: "Relógio digital interativo com suporte a fusos horários e formato 12h/24h.",
-    tech: ["React", "Next.js", "Tailwind"],
-    href: "/relogio",
-    external: false,
-    thumbnail: "/images/relogio.png",
+    cat: "Freelance · Web",
+    title: "Redesign do site do Scaldini Garcia",
+    img: "/images/scaldini-screenshot.png",
+    alt: "Site do Scaldini Garcia Contabilidade",
+    desc: "Redesign completo do site institucional, com foco em transmitir credibilidade e facilitar o contato com o escritório.",
+    tags: ["Wix"],
+    link: { label: "ver site ↗", href: "https://www.scaldinigarcia.com.br/", external: true },
   },
 ]
 
+const experiments = [
+  { title: "Gerador de QR Code", desc: "texto ou URL → QR", img: "/images/geradorqr.png", href: "/geradorqr", external: false },
+  { title: "Gerador de Senhas", desc: "tamanho e complexidade", img: "/images/geradorsenhas.png", href: "/senhas", external: false },
+  { title: "Relógio Digital", desc: "fusos e 12h/24h", img: "/images/relogio.png", href: "/relogio", external: false },
+  { title: "O Bando Mágico", desc: "microinterações", img: "/images/bandomagico.png", href: "https://bando-magico.vercel.app/", external: true },
+]
+
+const jobs = [
+  { when: "jul/2026 até hoje", what: "Desenvolvedora Full Stack Jr. (Freelance, PJ)", where: "Hub Escola" },
+  { when: "mai/2026 a jul/2026", what: "Assistente de Operações (Freelance, PJ)", where: "Amanda Arrigo Teacher" },
+  { when: "abr/2026 a jul/2026", what: "Estagiária de Suporte", where: "e-Price Tecnologia" },
+  { when: "abr/2024 a set/2025", what: "Técnico de Suporte", where: "Scaldini Garcia Contabilidade" },
+]
+
+const education = [
+  { when: "previsão de conclusão jul/2027", what: "Análise e Desenvolvimento de Sistemas", where: "UNINTER" },
+  { when: "concluído em 2024", what: "Técnico em Informática para Internet", where: "IFSULDEMINAS" },
+]
+
+const stack = [
+  { group: "automação & IA", items: "n8n · Make · Selenium · LLMs" },
+  { group: "backend & dados", items: "Python · Node.js · PostgreSQL · REST APIs" },
+  { group: "frontend", items: "React · Next.js · TypeScript · Tailwind" },
+  { group: "ferramentas", items: "Git · Figma · VS Code · Vercel" },
+]
+
+const contacts = [
+  { label: "e-mail", value: "contato@rafaelatavares.dev", href: "mailto:contato@rafaelatavares.dev", external: false },
+  { label: "LinkedIn", value: "in/rafaela-s-tavares ↗", href: "https://linkedin.com/in/rafaela-s-tavares", external: true },
+  { label: "GitHub", value: "github.com/rafaelasv ↗", href: "https://github.com/rafaelasv", external: true },
+  { label: "currículo", value: "Baixar currículo (PDF) ↓", href: "/curriculo-rafaela-tavares.pdf", external: false, download: true },
+]
+
+const CV_HREF = "/curriculo-rafaela-tavares.pdf"
+
 export default function Home() {
-  const [navScrolled, setNavScrolled] = useState(false)
-
-  // Nav scroll + progress bar
-  useEffect(() => {
-    const handleScroll = () => {
-      setNavScrolled(window.scrollY > 24)
-      const h = document.documentElement
-      const max = h.scrollHeight - h.clientHeight
-      const prog = document.getElementById("progress")
-      if (prog) prog.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + "%"
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Scroll reveal
-  useEffect(() => {
-    const els = document.querySelectorAll(".portfolio-page .fade")
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add("in"), i * 80)
-          obs.unobserve(entry.target)
-        }
-      })
-    }, { threshold: 0.12 })
-    els.forEach((el) => obs.observe(el))
-    return () => obs.disconnect()
-  }, [])
-
   return (
     <div className="portfolio-page">
-      <div className="progress" id="progress" />
+      <SiteHeader />
 
-      {/* NAV */}
-      <nav id="nav" className={navScrolled ? "scrolled" : ""}>
-        <div className="wrap">
-          <a href="#hero" className="logo">
-            rafaela<i style={{ color: "var(--accent)" }}>.tavares</i>
-          </a>
-          <div className="nav-right">
-            <ul className="nav-links">
-              <li><a href="#sobre">sobre</a></li>
-              <li><a href="#stack">stack</a></li>
-              <li><a href="#projetos">projetos</a></li>
-              <li><Link href="/cases">cases</Link></li>
-              <li><a href="#contato">contato</a></li>
-            </ul>
+      <main className="home">
+        <section id="hero" className="hp-hero">
+          <div className="sticker hp-sticker--star" aria-hidden="true">
+            <img src="/stickers/sticker-star.png" alt="" />
           </div>
-        </div>
-      </nav>
 
-      {/* HERO */}
-      <section id="hero">
-        <div className="postmark"><span className="mono">23 . 07 . 26</span><span className="mono">PORTFÓLIO PROOF</span></div>
-        <div className="sticker" style={{ top: "96px", right: "64px", width: "120px", transform: "rotate(-8deg)" }}>
-          <img src="/stickers/sticker-sparkles.png" alt="" />
-        </div>
-        <div className="sticker" style={{ bottom: "16px", left: "70px", width: "96px", transform: "rotate(6deg)" }}>
-          <img src="/stickers/sticker-star.png" alt="" />
-        </div>
-        <div className="wrap">
-          <div className="hero-grid">
-            <div className="hero-left">
-              <h1 className="headline">
-                Do <i>backend</i> ao <i>frontend</i>, com automação e IA no meio.
-              </h1>
-              <p className="hero-sub">
-                Desenvolvedora full-stack com foco em automação e IA. Construo do backend à interface, com Python, Node.js e React, e automatizo o que consome tempo demais.
-              </p>
-              <div className="btns">
-                <a href="#projetos" className="btn btn-fill">
-                  ver projetos <span className="arr">→</span>
-                </a>
-                <a href="#contato" className="btn">falar comigo</a>
-              </div>
+          <div className="hp-hero__main">
+            <p className="hp-avail">
+              <span className="dot">●</span>
+              <span>disponível · Trainee / Dev Júnior · remoto</span>
+            </p>
+            <h1>
+              Do <em>backend</em> ao <em className="pink">frontend</em>, com automação e IA no meio.
+            </h1>
+            <p className="hp-sub">
+              Desenvolvedora full-stack com foco em automação e IA. Construo do backend à interface, com Python, Node.js e React, e automatizo o que consome tempo demais.
+            </p>
+            <div className="hp-ctas">
+              <a href="#projetos" className="hp-btn hp-btn--fill">ver projetos →</a>
+              <a href="#contato" className="hp-btn">falar comigo</a>
+              <a href={CV_HREF} download className="hp-btn hp-btn--pink">Baixar currículo (PDF) ↓</a>
             </div>
-            <div className="hero-right">
-              <div className="ticket">
-                <div className="tt">rafaela tavares</div>
-                <div className="row"><span>foco</span><b>full-stack · automação · IA</b></div>
-                <div className="row"><span>stack</span><b>python · node · react</b></div>
-                <div className="row"><span>extra</span><b>n8n · llms · integrações</b></div>
-                <div className="row"><span>local</span><b>brasil · remoto</b></div>
-                <div className="row"><span>status</span><b className="ok">● disponível</b></div>
-              </div>
+            <div className="hp-links">
+              <a href="https://github.com/rafaelasv" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a href="https://linkedin.com/in/rafaela-s-tavares" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a href="mailto:contato@rafaelatavares.dev">contato@rafaelatavares.dev</a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <div className="wrap"><div className="hr" /></div>
+          <aside className="hp-ticket" aria-label="resumo">
+            <p className="hp-ticket__name">rafaela tavares</p>
+            <dl>
+              <div className="hp-ticket__row"><dt>foco</dt><dd>full-stack · automação · IA</dd></div>
+              <div className="hp-ticket__row"><dt>stack</dt><dd>python · node · react</dd></div>
+              <div className="hp-ticket__row"><dt>extra</dt><dd>n8n · llms · integrações</dd></div>
+              <div className="hp-ticket__row"><dt>local</dt><dd>Nova Serrana, MG · remoto</dd></div>
+              <div className="hp-ticket__row"><dt>busca</dt><dd>Trainee / Desenvolvedora Júnior</dd></div>
+            </dl>
+          </aside>
+        </section>
 
-      {/* SOBRE */}
-      <section id="sobre">
-        <div className="sticker" style={{ top: "14px", right: "84px", width: "104px", transform: "rotate(-4deg)" }}>
-          <img src="/stickers/sticker-hearts.png" alt="" />
-        </div>
-        <div className="wrap">
-          <p className="eyebrow fade"><span className="idx">01</span> Sobre</p>
-          <div className="sobre-grid fade">
-            <div className="sobre-photo-frame">
-              <img src="/images/sobremim.jpg" alt="Rafaela Tavares" />
-            </div>
-            <div className="sobre-text">
-              <p>
-                Sou <strong>Rafaela Tavares</strong>, desenvolvedora full-stack. Construo de ponta a ponta: automações que economizam horas de trabalho manual, integrações com IA e interfaces que são óbvias de usar. Gosto de resolver o problema de verdade, não só a parte visível dele.
-              </p>
-              <p>
-                Trabalho na interseção entre <strong>design e engenharia</strong>: construo com React, Next.js e TypeScript, automatizo processos repetitivos com Python e Node, e integro IA quando ela resolve o problema de verdade — não só por estar na moda.
-              </p>
-              <div className="facts">
-                <div className="fact">
-                  <div className="n">+3</div>
-                  <div className="l">anos com código</div>
-                </div>
-                <div className="fact">
-                  <div className="n">10+</div>
-                  <div className="l">tecnologias</div>
-                </div>
-                <div className="fact">
-                  <div className="n">100%</div>
-                  <div className="l">remoto / async</div>
-                </div>
-              </div>
-            </div>
+        <section id="projetos" className="hp-section">
+          <div className="sticker hp-sticker--crow" aria-hidden="true">
+            <img src="/stickers/sticker-crow.png" alt="" />
           </div>
-        </div>
-      </section>
+          <p className="hp-eyebrow">01 · projetos em destaque</p>
+          <h2 className="hp-h2">O que eu já entreguei</h2>
 
-      <div className="wrap"><div className="hr" /></div>
-
-      {/* STACK */}
-      <section id="stack">
-        <div className="sticker" style={{ top: "10px", left: "70px", width: "92px", transform: "rotate(5deg)" }}>
-          <img src="/stickers/sticker-exclamation.png" alt="" />
-        </div>
-        <div className="wrap">
-          <p className="eyebrow fade"><span className="idx">02</span> Stack</p>
-          <div className="stack-grid fade">
-            <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Automação &amp; IA</div>
-              <div className="chips">
-                <span className="chip">n8n</span>
-                <span className="chip">Make</span>
-                <span className="chip">Selenium</span>
-                <span className="chip">LLMs / IA</span>
-              </div>
-            </div>
-            <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Backend &amp; Dados</div>
-              <div className="chips">
-                <span className="chip">Python</span>
-                <span className="chip">Node.js</span>
-                <span className="chip">PostgreSQL</span>
-                <span className="chip">REST APIs</span>
-              </div>
-            </div>
-            <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Frontend</div>
-              <div className="chips">
-                <span className="chip">React</span>
-                <span className="chip">Next.js</span>
-                <span className="chip">TypeScript</span>
-                <span className="chip">Tailwind</span>
-              </div>
-            </div>
-            <div className="stack-cat">
-              <div className="cat-h"><span className="idx">/</span> Ferramentas</div>
-              <div className="chips">
-                <span className="chip">Git</span>
-                <span className="chip">Figma</span>
-                <span className="chip">VS Code</span>
-                <span className="chip">Vercel</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="wrap"><div className="hr" /></div>
-
-      {/* PROJETOS */}
-      <section id="projetos">
-        <div className="sticker" style={{ bottom: "14px", right: "96px", width: "100px", transform: "rotate(-6deg)" }}>
-          <img src="/stickers/sticker-star.png" alt="" />
-        </div>
-        <div className="sticker" style={{ top: "6px", right: "180px", width: "90px", transform: "rotate(7deg)" }}>
-          <img src="/stickers/sticker-crow.png" alt="" />
-        </div>
-        <div className="wrap">
-          <div className="sec-head">
-            <p className="eyebrow fade"><span className="idx">03</span> Projetos selecionados</p>
-            <Link href="/cases" className="sec-link fade">
-              Ver cases aprofundados <span className="arr">→</span>
-            </Link>
-          </div>
-          <div className="proj-list">
-            {projects.map((p) => (
-              <article key={p.num} className="proj fade">
-                <div className="proj-img-wrap">
-                  <img src={p.thumbnail} alt={p.title} className="proj-img" />
-                </div>
-                <div className="proj-body">
-                  <div className="proj-top">
-                    <span className="num">{p.num}</span>
-                    <span className="kind">{p.kind}</span>
-                  </div>
+          <div className="hp-grid">
+            {featured.map((p) => (
+              <article key={p.num} className="hp-card">
+                <img src={p.img} alt={p.alt} loading="lazy" className="hp-card__img" />
+                <div className="hp-card__body">
+                  <p className="hp-card__meta">{p.num} · {p.cat}</p>
                   <h3>{p.title}</h3>
-                  <p>{p.description}</p>
-                  <div className="proj-tags">
-                    {p.tech.map((t) => <span key={t}>{t}</span>)}
-                  </div>
-                  <div className="proj-links">
-                    {p.external ? (
-                      <a href={p.href} target="_blank" rel="noopener noreferrer">
-                        Ver projeto <span className="arr">↗</span>
-                      </a>
+                  <p className="hp-card__desc">{p.desc}</p>
+                  <ul className="hp-tags" aria-label="tecnologias">
+                    {p.tags.map((t) => <li key={t}>{t}</li>)}
+                  </ul>
+                  <div className="hp-card__links">
+                    {p.link.external ? (
+                      <a href={p.link.href} target="_blank" rel="noopener noreferrer">{p.link.label}</a>
                     ) : (
-                      <Link href={p.href}>
-                        Ver projeto <span className="arr">↗</span>
-                      </Link>
+                      <Link href={p.link.href}>{p.link.label}</Link>
                     )}
                   </div>
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <div className="wrap"><div className="hr" /></div>
+          <Link href="/cases" className="hp-more">ver cases aprofundados →</Link>
 
-      {/* CONTATO */}
-      <section id="contato">
-        <div className="sticker" style={{ bottom: "20px", left: "60px", width: "100px", transform: "rotate(4deg)" }}>
-          <img src="/stickers/sticker-sparkles.png" alt="" />
-        </div>
-        <div className="wrap">
-          <p className="eyebrow fade"><span className="idx">04</span> Contato</p>
-          <h2 className="contact-head fade">
-            Vamos construir algo <span className="gold">que funciona</span>?
-          </h2>
-          <p className="contact-sub fade">
-            Aberta para oportunidades, freelances e colaborações. Me manda uma mensagem — respondo rápido.
-          </p>
-          <div className="contact-row fade">
-            <a href="mailto:contato@rafaelatavares.dev" className="email-btn">
-              <span style={{ color: "var(--accent)" }}>@</span> contato@rafaelatavares.dev
-            </a>
-            <div className="socials">
-              <a
-                href="https://linkedin.com/in/rafaela-s-tavares"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="soc"
-                title="LinkedIn"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a
-                href="https://github.com/rafaelasv"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="soc"
-                title="GitHub"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                </svg>
-              </a>
+          <div className="hp-lab">
+            <h3>Experimentos</h3>
+            <p className="hp-lab__sub">projetos de treino · React · Next.js · Tailwind</p>
+            <ul>
+              {experiments.map((e) => {
+                const inner = (
+                  <>
+                    <img src={e.img} alt="" loading="lazy" />
+                    <span className="hp-lab__text">
+                      <span className="hp-lab__title">{e.title} {e.external ? "↗" : "→"}</span>
+                      <span className="hp-lab__desc">{e.desc}</span>
+                    </span>
+                  </>
+                )
+                return (
+                  <li key={e.title}>
+                    {e.external ? (
+                      <a href={e.href} target="_blank" rel="noopener noreferrer">{inner}</a>
+                    ) : (
+                      <Link href={e.href}>{inner}</Link>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+
+        <section id="experiencia" className="hp-section hp-split">
+          <div>
+            <p className="hp-eyebrow">02 · experiência</p>
+            <h2 className="hp-h2 hp-h2--tight">Experiência</h2>
+            <ol className="hp-timeline">
+              {jobs.map((j) => (
+                <li key={j.when}>
+                  <span className="hp-when">{j.when}</span>
+                  <span className="hp-what">{j.what}</span>
+                  <span className="hp-where">{j.where}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <p className="hp-eyebrow">formação</p>
+            <h2 className="hp-h2 hp-h2--tight">Formação</h2>
+            <ol className="hp-timeline">
+              {education.map((d) => (
+                <li key={d.what}>
+                  <span className="hp-when">{d.when}</span>
+                  <span className="hp-what">{d.what}</span>
+                  <span className="hp-where">{d.where}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="sobre" className="hp-section hp-about">
+          <div className="sticker hp-sticker--hearts" aria-hidden="true">
+            <img src="/stickers/sticker-hearts.png" alt="" />
+          </div>
+          <figure className="hp-polaroid">
+            <img src="/images/sobremim.jpg" alt="Rafaela Tavares" />
+          </figure>
+          <div className="hp-about__text">
+            <p className="hp-eyebrow">03 · sobre</p>
+            <p>
+              Sou <strong>Rafaela Tavares</strong>, desenvolvedora full-stack. Construo de ponta a ponta: automações que economizam horas de trabalho manual, integrações com IA e interfaces que são óbvias de usar.
+            </p>
+            <p>
+              Construo com React, Next.js e TypeScript, automatizo processos repetitivos com Python e Node, e integro IA quando ela resolve o problema.
+            </p>
+            <div className="hp-stats">
+              <div className="hp-stat">
+                <div className="hp-stat__n">10+</div>
+                <div className="hp-stat__l">tecnologias</div>
+              </div>
+              <div className="hp-stat">
+                <div className="hp-stat__n">~1 h → ~5 min</div>
+                <div className="hp-stat__l">tarefa manual automatizada com Python no suporte contábil</div>
+              </div>
+              <div className="hp-stat">
+                <div className="hp-stat__n">18 campos</div>
+                <div className="hp-stat__l">extraídos por IA no agente de triagem do WhatsApp</div>
+              </div>
+            </div>
+            <div className="hp-stack">
+              {stack.map((s) => (
+                <div key={s.group}>
+                  <div className="hp-stack__group">/ {s.group}</div>
+                  <div className="hp-stack__items">{s.items}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="wrap">
-          <span className="mono">rafaela tavares — 2026</span>
-          <span className="mono" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <a href="#hero">de volta ao topo ↑</a>
-            <img src="/stickers/sticker-rabbit.png" alt="" style={{ width: "40px", transform: "rotate(-6deg)" }} />
-          </span>
-        </div>
+        <section id="contato" className="hp-section hp-contact">
+          <div className="sticker hp-sticker--sparkles" aria-hidden="true">
+            <img src="/stickers/sticker-sparkles.png" alt="" />
+          </div>
+          <p className="hp-eyebrow">04 · contato</p>
+          <h2>Vamos construir algo que funciona?</h2>
+          <p className="hp-contact__sub">
+            Aberta para vagas de Trainee e Desenvolvedora Júnior (remoto), freelances e colaborações.
+          </p>
+          <ul>
+            {contacts.map((c) => (
+              <li key={c.label}>
+                <a
+                  href={c.href}
+                  {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(c.download ? { download: true } : {})}
+                >
+                  <span className="hp-contact__label">{c.label}</span>
+                  <span className="hp-contact__value">{c.value}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+
+      <footer className="hp-footer">
+        <span>rafaela tavares · 2026</span>
+        <a href="#hero">de volta ao topo ↑</a>
       </footer>
     </div>
   )

@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import SiteHeader from "@/components/site-header"
 
 const cases = [
   {
@@ -11,7 +12,6 @@ const cases = [
     tagline: "Sistema que automatizou toda a entrada de uma aluna nova: do pagamento ao primeiro contato no WhatsApp.",
     meta: {
       papel: "Desenvolvedora & Integradora",
-      periodo: "2024 · ~3 meses",
       tipo: "Freelance",
       stack: "Python · n8n · WhatsApp API",
     },
@@ -50,7 +50,6 @@ const cases = [
     tagline: "Estrutura que deu identidade visual e organização à produção de conteúdo de uma marca com 80k seguidores.",
     meta: {
       papel: "Desenvolvedora Frontend",
-      periodo: "2024 · contínuo",
       tipo: "Freelance",
       stack: "HTML/CSS · JS · Google AppScript",
     },
@@ -130,7 +129,6 @@ const cases = [
     tagline: "A equipe parou de checar grupos e planilhas na mão — os avisos certos chegam sozinhos, na hora certa.",
     meta: {
       papel: "Desenvolvedora & Automatizadora",
-      periodo: "2024–2025 · contínuo",
       tipo: "Freelance",
       stack: "Node.js · Claude · Gemini · Railway",
     },
@@ -169,7 +167,6 @@ const cases = [
     tagline: "O mesmo conteúdo passou a alcançar Instagram, TikTok e Pinterest de forma automática, sem trabalho repetido.",
     meta: {
       papel: "Desenvolvedora & Automatizadora",
-      periodo: "2025 · contínuo",
       tipo: "Freelance",
       stack: "Make · Python · ManyChat · Instagram API",
     },
@@ -243,13 +240,11 @@ const cases = [
 ]
 
 export default function Cases() {
-  const [navScrolled, setNavScrolled] = useState(false)
   const [activeCase, setActiveCase] = useState("")
 
   // Nav scroll + progress
   useEffect(() => {
     const handleScroll = () => {
-      setNavScrolled(window.scrollY > 24)
       const h = document.documentElement
       const max = h.scrollHeight - h.clientHeight
       const prog = document.getElementById("progress")
@@ -290,23 +285,7 @@ export default function Cases() {
     <div className="cases-page">
       <div className="progress" id="progress" />
 
-      {/* NAV */}
-      <nav id="nav" className={navScrolled ? "scrolled" : ""}>
-        <div className="wrap">
-          <Link href="/" className="logo">
-            rafaela<i style={{ color: "var(--accent)" }}>.tavares</i>
-          </Link>
-          <div className="nav-right">
-            <ul className="nav-links">
-              <li><Link href="/#sobre">sobre</Link></li>
-              <li><Link href="/#stack">stack</Link></li>
-              <li><Link href="/#projetos">projetos</Link></li>
-              <li><a href="#" className="active">cases</a></li>
-              <li><Link href="/#contato">contato</Link></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader current="cases" />
 
       {/* INTRO */}
       <section id="intro">
@@ -321,9 +300,6 @@ export default function Cases() {
           </h1>
           <p className="intro-sub">
             Seis projetos destrinchados de ponta a ponta: o contexto, o problema real, as decisões que tomei no caminho e o que mudou no fim. Menos vitrine, mais processo.
-          </p>
-          <p style={{ fontSize: "0.82rem", opacity: 0.5, marginTop: "1.25rem", maxWidth: "560px", lineHeight: "1.6" }}>
-            Os cases 01, 02, 04 e 05 fazem parte de um trabalho contínuo com a mesma cliente ao longo de dois anos — cada um resolvendo um problema diferente à medida que o negócio crescia.
           </p>
         </div>
         <div className="sticker" style={{ bottom: "8px", right: "70px", width: "90px", transform: "rotate(-5deg)" }}>
@@ -375,10 +351,12 @@ export default function Cases() {
                   <div className="k">Papel</div>
                   <div className="v">{c.meta.papel}</div>
                 </div>
-                <div className="meta-item">
-                  <div className="k">Período</div>
-                  <div className="v">{c.meta.periodo}</div>
-                </div>
+                {c.meta.periodo && (
+                  <div className="meta-item">
+                    <div className="k">Período</div>
+                    <div className="v">{c.meta.periodo}</div>
+                  </div>
+                )}
                 <div className="meta-item">
                   <div className="k">Tipo</div>
                   <div className="v">{c.meta.tipo}</div>
