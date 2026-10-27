@@ -1,22 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
+import { Fraunces, Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-})
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex",
-})
+const fraunces = Fraunces({ subsets: ["latin"], style: ["normal", "italic"], weight: "400", variable: "--font-fraunces" })
+const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-geist" })
+const geistMono = Geist_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
   title: "Rafaela Tavares · Full-stack, Automação & IA",
@@ -37,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${instrumentSerif.variable} ${plexMono.variable} antialiased`}>
+    <html lang="pt-BR" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
+      <body>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <script
