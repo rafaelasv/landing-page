@@ -18,7 +18,7 @@ const HEART = [".X.X.", "XXXXX", ".XXX.", "..X.."], ZED = ["XXX", ".X.", "XXX"];
 type Mood = "normal" | "carinho" | "sonolento" | "dormindo";
 type Part = { kind: "h" | "z"; x: number; y: number; vx: number; life: number };
 
-export function Gatinho() {
+export function Gatinho({ outline = false }: { outline?: boolean }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const cvRef = useRef<HTMLCanvasElement>(null);
   const shadowRef = useRef<HTMLDivElement>(null);
@@ -163,7 +163,12 @@ export function Gatinho() {
       className="pointer-events-none fixed bottom-1.5 right-4 z-40 h-[86px] w-[60px] desk:h-[118px] desk:w-[82px]"
     >
       <div ref={shadowRef} className="absolute bottom-[-2px] left-[38%] right-[14%] h-1.5 rounded-[50%] bg-[#8a80c8] opacity-35" />
-      <canvas ref={cvRef} className="pointer-events-auto relative block h-full w-full touch-none [image-rendering:pixelated]" />
+      <canvas
+        ref={cvRef}
+        className="pointer-events-auto relative block h-full w-full touch-none [image-rendering:pixelated]"
+        // outline: contorno cinza para o gato preto não sumir no fundo escuro (home v17)
+        style={outline ? { filter: "drop-shadow(1.5px 0 0 #4a4452) drop-shadow(-1.5px 0 0 #4a4452) drop-shadow(0 1.5px 0 #4a4452) drop-shadow(0 -1.5px 0 #4a4452)" } : undefined}
+      />
     </div>
   );
 }
