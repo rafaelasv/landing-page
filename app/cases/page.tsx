@@ -7,17 +7,16 @@ import { DarkCta, darkBtn, Footer } from "@/components/Contact";
 import { CASES } from "@/data/cases";
 import { CV_URL } from "@/data/site";
 
-export const metadata: Metadata = { title: "Cases · Rafaela Tavares · Full-stack, Automação & IA" };
+export const metadata: Metadata = { title: "Cases · Rafaela Tavares · Desenvolvedora full-stack / automação" };
 
 export default function CasesPage() {
   return (
     <Shell sidebar={<CasesSidebar />} nav={CASES_NAV}>
-      {/* gap maior entre cases do que dentro deles, para separar visualmente */}
       <div className="flex flex-col gap-12">
         {CASES.map((c) => <CaseArticle key={c.slug} c={c} />)}
       </div>
 
-      <DarkCta title="Gostou do processo?" sticker="sparkles" text="Disponível para vagas de Trainee e Júnior (remoto), freelances e colaborações.">
+      <DarkCta title="Gostou do processo?" text="Disponível para vagas de Trainee e Júnior (remoto), freelances e colaborações.">
         <Link href="/#contato" className={darkBtn.primary}>Falar comigo →</Link>
         <Link href="/#projetos" className={darkBtn.secondary}>Ver projetos</Link>
         <a href={CV_URL} download className={darkBtn.outline}>currículo (PDF) ↓</a>

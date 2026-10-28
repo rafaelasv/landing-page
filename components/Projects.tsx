@@ -1,57 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LEAD_PROJECT, LINKS, PROJECTS, type Project } from "@/data/site";
-import { card, cardHover, SectionTitle } from "./Section";
+import { LINKS, PROJECTS, type Project } from "@/data/site";
+import { card, SectionTitle } from "./Section";
 
-function ProjectLink({ p }: { p: Project }) {
-  const cls = "mt-auto flex min-h-11 items-center self-start font-medium text-plum";
-  return p.external
-    ? <a href={p.href} target="_blank" rel="noopener" className={cls}>{p.cta} ↗</a>
-    : <Link href={p.href} className={cls}>{p.cta} →</Link>;
+function MainLink({ p }: { p: Project }) {
+  const cls = "flex min-h-10 items-center text-plum";
+  return p.href.startsWith("http")
+    ? <a href={p.href} target="_blank" rel="noopener" className={cls}>{p.cta}</a>
+    : <Link href={p.href} className={cls}>{p.cta}</Link>;
 }
 
-const tag = "rounded-full bg-tag px-2.5 py-0.5 text-sm text-tag-ink";
-
 export function Projects() {
-  const p = LEAD_PROJECT;
   return (
     <section id="projetos" aria-labelledby="h-projetos">
-      <div className="mb-4 flex items-end justify-between gap-3">
-        <SectionTitle eyebrow="projetos" title="Trabalhos em destaque" id="h-projetos" />
-        <Link href="/cases" className="flex min-h-10 items-center whitespace-nowrap rounded-full border border-line bg-white px-3 text-sm no-underline transition-colors hover:border-plum">
+      <div className="mb-3.5 flex items-end justify-between gap-3">
+        <SectionTitle eyebrow="02 / projetos" title="Trabalhos em destaque" id="h-projetos" />
+        <Link href="/cases" className="flex min-h-10 items-center whitespace-nowrap rounded-lg border border-line bg-white px-3 font-mono text-[13.5px] no-underline transition-colors hover:border-plum">
           todos os cases →
         </Link>
       </div>
 
-      {/* Grade: o projeto principal ocupa a linha inteira; os outros 3 se ajustam (1 coluna no celular). */}
+      {/* O primeiro projeto (lead) ocupa a linha inteira e, no desktop, fica com imagem ao lado do texto. */}
       <div className="grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
-        <article className={`rise group col-span-full grid gap-1 p-1.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))] ${card} ${cardHover}`}>
-          <div className="overflow-hidden rounded-[13px] bg-[#efe8f8]">
-            <Image src={p.img} alt={p.title} width={900} height={675} priority className="aspect-[4/3] h-full min-h-[220px] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
-          </div>
-          <div className="flex flex-col gap-2.5 px-4 pb-2.5 pt-4">
-            <p className="flex flex-wrap gap-1.5 text-sm">
-              <span className="rounded-full bg-[#fde8f2] px-2.5 py-0.5 text-pink-ink">em destaque</span>
-              <span className={tag}>{p.category}</span>
-            </p>
-            <h3 className="text-balance text-[19px] font-semibold leading-snug tracking-[-0.015em]">{p.title}</h3>
-            <p className="text-pretty text-ink-2">{p.desc}</p>
-            <p className="font-mono text-sm text-ink-3">{p.stack}</p>
-            <ProjectLink p={p} />
-          </div>
-        </article>
-
-        {PROJECTS.map((p) => (
-          <article key={p.title} className={`rise group flex flex-col gap-1 p-1.5 ${card} ${cardHover}`}>
-            <div className="overflow-hidden rounded-[13px] bg-[#efe8f8]">
-              <Image src={p.img} alt={p.title} width={640} height={400} className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]" />
+        {PROJECTS.map((p, i) => (
+          <article
+            key={p.title}
+            className={`grid overflow-hidden transition-colors hover:border-line-strong ${card} ${i === 0 ? "col-span-full desk:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : ""}`}
+          >
+            <div className="border-b border-line bg-[#eceaee]">
+              <Image src={p.img} alt={p.title} width={900} height={560} priority={i === 0} className="aspect-[16/10] h-full w-full object-cover object-top" />
             </div>
-            <div className="flex flex-1 flex-col gap-2 px-3 pb-1.5 pt-3">
-              <p className="text-sm"><span className={tag}>{p.category}</span></p>
-              <h3 className="text-[17px] font-semibold leading-snug tracking-[-0.015em]">{p.title}</h3>
-              <p className="text-pretty text-sm text-ink-2">{p.desc}</p>
-              <p className="font-mono text-sm text-ink-3">{p.stack}</p>
-              <ProjectLink p={p} />
+            <div className="flex flex-col gap-2 px-4 pb-3 pt-3.5">
+              <p className="font-mono text-[13px] text-ink-3">{p.category}</p>
+              <h3 className="text-balance text-[17px] font-semibold leading-snug tracking-[-0.015em]">{p.title}</h3>
+              <p className="text-pretty text-[14.5px] text-ink-2">{p.desc}</p>
+              <ul className="flex flex-wrap gap-1">
+                {p.tech.map((t) => <li key={t} className="rounded bg-tag px-[7px] py-px font-mono text-[12.5px] text-tag-ink">{t}</li>)}
+              </ul>
+              <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line-soft pt-1.5 font-mono text-[13.5px]">
+                <MainLink p={p} />
+                {p.repo && <a href={p.repo} target="_blank" rel="noopener" className="flex min-h-10 items-center">repo ↗</a>}
+                {p.privateRepo && <span className="text-ink-3">repo privado (cliente)</span>}
+              </div>
             </div>
           </article>
         ))}

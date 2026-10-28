@@ -140,16 +140,16 @@
   }
 
   a {
-    @apply underline decoration-[#c4b3dc] underline-offset-4;
+    @apply underline decoration-panel-muted underline-offset-4;
   }
   a:hover {
     @apply text-plum decoration-plum;
   }
   a:focus-visible,
   button:focus-visible {
-    outline: 2px solid #c2357a;
+    outline: 2px solid #5a2d82;
     outline-offset: 3px;
-    border-radius: 10px;
+    border-radius: 8px;
   }
 
   /* Hide Next.js development indicators */
@@ -183,14 +183,6 @@
   .password-range::-moz-range-thumb {
     @apply w-4 h-4 bg-purple-600 rounded-full cursor-pointer border-none;
   }
-}
-
-@keyframes rise {
-  from { transform: translateY(16px); }
-  to { transform: none; }
-}
-@supports (animation-timeline: view()) {
-  .rise { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
 }
 
 .no-scrollbar { scrollbar-width: none; }

@@ -1,37 +1,33 @@
 import type { Config } from "tailwindcss";
 
-// Paleta da v8. Contraste conferido: textos ink-2/ink-3 sobre paper/branco e panel-* sobre ink passam AA.
+// Paleta da v15: neutra e escura, com ameixa só em rótulos e links.
 export default {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      screens: { desk: "900px" }, // abaixo disso: layout de celular (barra no topo, painel vira hero)
+      screens: { desk: "900px" }, // abaixo disso: layout de celular (barra no topo, painel vira topo da página)
       colors: {
-        paper: "#f6f3fb",
-        ink: { DEFAULT: "#1e1330", 2: "#3f3354", 3: "#5b4f70" },
-        line: { DEFAULT: "#e7def3", soft: "#efe8f8" },
-        plum: "#6b2fb3",
-        lilac: "#c9a8ff",
-        pink: { DEFAULT: "#ffb8da", ink: "#9b2763", bg: "#fdf2f7", line: "#f6d6e6" },
-        mint: "#8fe3a8",
-        tag: { DEFAULT: "#f1eaf9", ink: "#4b2a7a" },
-        panel: { DEFAULT: "#241833", 2: "#2a1d3d", 3: "#33244a", line: "#3a2a52", text: "#e4daf3", muted: "#d6cbe6", light: "#f4eefc" },
+        paper: "#f5f4f2",
+        ink: { DEFAULT: "#16131a", 2: "#4a4550", 3: "#5f5a66" },
+        line: { DEFAULT: "#e4e2e6", soft: "#efedf1", strong: "#b7b2bd" },
+        plum: "#5a2d82",
+        lilac: "#c8b6e2",
+        mint: { DEFAULT: "#7bd88f", ink: "#2f7a45" },
+        tag: { DEFAULT: "#f1eff3", ink: "#3a3540" },
+        todo: "#8a3a4a",
+        panel: { DEFAULT: "#221e27", 2: "#2c2731", line: "#36313c", term: "#0e0c11", text: "#dcd8e0", muted: "#c9c4cf", dim: "#8f8996", light: "#f2f0f4" },
       },
       fontFamily: {
         sans: ["var(--font-geist)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
-        serif: ["var(--font-fraunces)", "serif"],
       },
       keyframes: {
         "hero-in": { from: { opacity: "0", transform: "translateY(6px)" }, to: { opacity: "1", transform: "none" } },
-        bob: {
-          "0%,100%": { transform: "translateY(0) rotate(var(--r))" },
-          "50%": { transform: "translateY(-7px) rotate(calc(var(--r) + 5deg))" },
-        },
+        blink: { "50%": { opacity: "0" } },
       },
       animation: {
-        "hero-in": "hero-in .35s ease-out both", // teto de 0,4 s
-        bob: "bob var(--dur, 6s) var(--delay, 0s) ease-in-out infinite",
+        "hero-in": "hero-in .35s ease-out both",
+        blink: "blink 1.1s steps(1) infinite",
       },
     },
   },

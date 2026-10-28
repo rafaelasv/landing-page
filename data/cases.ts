@@ -6,7 +6,6 @@ export type Case = {
   steps: { title: string; text: string }[];
   results: { value: string; label: string }[];
   links: { label: string; href: string }[];
-  sticker: string;
 };
 
 export const CASES: Case[] = [
@@ -47,7 +46,6 @@ export const CASES: Case[] = [
       }
     ],
     "links": [],
-    "sticker": "exclamation",
     "shortTitle": "Infraestrutura de vendas"
   },
   {
@@ -87,7 +85,6 @@ export const CASES: Case[] = [
       }
     ],
     "links": [],
-    "sticker": "star",
     "shortTitle": "Conteúdo e distribuição"
   },
   {
@@ -132,7 +129,6 @@ export const CASES: Case[] = [
         "href": "https://github.com/rafaelasv/baixa-nfse"
       }
     ],
-    "sticker": "rabbit",
     "shortTitle": "Processos contábeis"
   },
   {
@@ -172,7 +168,6 @@ export const CASES: Case[] = [
       }
     ],
     "links": [],
-    "sticker": "crow",
     "shortTitle": "Comunicação e alertas via IA"
   },
   {
@@ -212,7 +207,6 @@ export const CASES: Case[] = [
       }
     ],
     "links": [],
-    "sticker": "bow",
     "shortTitle": "Distribuição multi-plataforma"
   },
   {
@@ -256,7 +250,6 @@ export const CASES: Case[] = [
       }
     ],
     "links": [],
-    "sticker": "exclamation",
     "shortTitle": "Triagem via WhatsApp"
   }
 ];

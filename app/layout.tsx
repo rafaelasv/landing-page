@@ -1,17 +1,16 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Fraunces, Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const fraunces = Fraunces({ subsets: ["latin"], style: ["normal", "italic"], weight: "400", variable: "--font-fraunces" })
-const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-geist" })
+const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-geist" })
 const geistMono = Geist_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Rafaela Tavares · Full-stack, Automação & IA",
-  description: "Portfólio de Rafaela Tavares. Desenvolvimento full-stack, automação de processos e integração com IA, com frontend em React/Next.js.",
+  title: "Rafaela Tavares · Desenvolvedora full-stack / automação",
+  description: "Portfólio de Rafaela Tavares. Desenvolvimento full-stack com Python, Node.js e React, automação de processos e integração com IA.",
   icons: {
     icon: [
       {
@@ -28,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
+    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`}>
       <body>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
