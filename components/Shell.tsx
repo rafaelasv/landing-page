@@ -7,7 +7,7 @@ import { Gatinho } from "./Gatinho";
 export type NavItem = { href: string; label: string };
 
 /**
- * Estrutura comum da home e de /cases:
+ * Estrutura de /cases (v15, clara). A home usa HomeShell (v17).
  * - celular (< 900 px): barra fixa no topo com "CV" e "menu"; o painel vira o topo da página.
  * - desktop: painel escuro fixo à esquerda, conteúdo rolando à direita.
  * O conteúdo tem uma margem à direita (desk:pr-[104px]) e embaixo (pb-24 no celular) para o gatinho fixo não cobrir nada.
@@ -16,7 +16,7 @@ export function Shell({ sidebar, nav, children }: { sidebar: React.ReactNode; na
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <div className="min-h-screen bg-paper text-ink">
       <header className="sticky top-0 z-30 px-2 pt-2 desk:hidden">
         <div className="rounded-xl bg-ink/95 backdrop-blur">
           <div className="flex min-h-14 items-center justify-between gap-3 py-1.5 pl-4 pr-2">
@@ -58,7 +58,7 @@ export function Shell({ sidebar, nav, children }: { sidebar: React.ReactNode; na
       </div>
 
       <Gatinho />
-    </>
+    </div>
   );
 }
 

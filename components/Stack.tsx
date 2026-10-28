@@ -1,21 +1,22 @@
-import { STACK } from "@/data/site";
-import { SectionTitle } from "./Section";
+import { TOOLS } from "@/data/site";
+import { BigTitle, homeSection } from "./Section";
 
-export function Stack() {
+/** "Ferramentas do dia a dia" (id="stack" mantido para o menu). */
+export function Tools() {
   return (
-    <section id="stack" aria-labelledby="h-stack">
-      <div className="mb-3.5"><SectionTitle eyebrow="01 / stack" title="O que uso no dia a dia" id="h-stack" /></div>
-      {/* gap de 1px sobre fundo cinza = linhas finas entre as colunas */}
-      <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line [grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))]">
-        {STACK.map((s) => (
-          <div key={s.group} className="flex flex-col gap-2 bg-white px-4 py-3.5">
-            <span className="font-mono text-[13px] text-ink-3">{s.group}</span>
-            <ul className="flex flex-col gap-0.5">
-              {s.items.map((t) => <li key={t} className="text-[15px] font-medium">{t}</li>)}
-            </ul>
-          </div>
+    <section id="stack" aria-labelledby="h-stack" className={homeSection}>
+      <BigTitle id="h-stack" top="Ferramentas" bottom="do dia a dia" />
+      <ul className="grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))]">
+        {TOOLS.map((t) => (
+          <li key={t.name} className="flex items-center gap-3.5 rounded-[14px] p-3 transition-colors hover:bg-night-2">
+            <span aria-hidden className="grid h-12 w-12 flex-none place-items-center rounded-xl bg-paper font-mono text-sm font-medium text-plum">{t.abbr}</span>
+            <span className="flex min-w-0 flex-col">
+              <span className="text-base font-semibold leading-snug">{t.name}</span>
+              <span className="text-sm text-night-muted">{t.use}</span>
+            </span>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
