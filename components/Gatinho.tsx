@@ -160,7 +160,7 @@ export function Gatinho({ outline = false }: { outline?: boolean }) {
       ref={hostRef}
       role="img"
       aria-label="gatinho preto em pixel art"
-      className="pointer-events-none fixed bottom-1.5 right-4 z-40 h-[86px] w-[60px] desk:h-[118px] desk:w-[82px]"
+      className="pointer-events-none fixed bottom-1.5 right-4 z-40 h-[86px] w-[60px] wide:h-[118px] wide:w-[82px]"
     >
       <div ref={shadowRef} className="absolute bottom-[-2px] left-[38%] right-[14%] h-1.5 rounded-[50%] bg-[#8a80c8] opacity-35" />
       <canvas

@@ -1,12 +1,11 @@
 import type { Config } from "tailwindcss";
 
-// v17: home escura com card claro; /cases segue clara (v15).
+// v17: home e /cases escuras com card claro.
 export default {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       screens: {
-        desk: "900px", // /cases: painel lateral a partir daqui
         wide: "1100px", // home: card fixo à esquerda a partir daqui (abaixo, empilha)
         xwide: "1200px", // home: linhas de projeto com miniatura maior
       },
