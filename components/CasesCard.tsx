@@ -18,7 +18,7 @@ export function CasesCard() {
       <div className="relative flex flex-col gap-1.5">
         <p className="font-mono text-[13.5px] text-plum">~/cases</p>
         <h1 className="text-[30px] font-bold leading-[1.05] tracking-[-0.035em]">Estudos de caso</h1>
-        <p className="mt-1 text-pretty text-[14.5px] leading-normal text-ink-2">Seis projetos de ponta a ponta: contexto, problema, decisões e resultado. Os cases 01, 02, 04 e 05 são da mesma cliente.</p>
+        <p className="mt-1 text-pretty text-[14.5px] leading-normal text-ink-2">Sete projetos de ponta a ponta: contexto, problema, decisões e resultado. Os cases 01, 02, 04 e 05 são da mesma cliente.</p>
       </div>
 
       <nav aria-label="índice de cases" className="relative flex flex-col gap-0.5 rounded-[14px] border border-line bg-white p-1.5 text-sm">

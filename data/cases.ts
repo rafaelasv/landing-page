@@ -214,7 +214,7 @@ export const CASES: Case[] = [
     "slug": "case-06",
     "category": "IA · Automação",
     "title": "Agente de triagem de candidatos via WhatsApp",
-    "lead": "Sistema que recebe candidatos no WhatsApp, conduz a triagem por conversa e extrai dados do currículo automaticamente, sem intervenção humana.",
+    "lead": "Sistema que recebe candidatos no WhatsApp, conduz a triagem por conversa e extrai dados do currículo automaticamente, com intervenção humana só quando necessário.",
     "role": "Desenvolvedora & Automatizadora",
     "period": "2026 · em andamento",
     "type": "Freelance",
@@ -251,5 +251,44 @@ export const CASES: Case[] = [
     ],
     "links": [],
     "shortTitle": "Triagem via WhatsApp"
+  },
+  {
+    "num": "07",
+    "slug": "case-07",
+    "category": "Back-end · IA",
+    "title": "Portal do candidato e confiabilidade em produção",
+    "lead": "Portal PWA para candidatos e correções que mantiveram a triagem por IA rodando sem travar.",
+    "role": "Desenvolvedora Full-Stack",
+    "period": "2026 · em andamento",
+    "type": "Freelance",
+    "stack": "Next.js · TypeScript · Fastify · RabbitMQ · Redis · PostgreSQL · Docker · GitHub Actions",
+    "context": "A plataforma recebe candidatos por WhatsApp, e-mail e portal PWA e faz a triagem com IA. Depois da fase em n8n, o sistema passou a rodar como serviços ligados por RabbitMQ, com arquitetura definida pelo time. Entrei no back-end em outubro.",
+    "problem": "O candidato só tinha o WhatsApp como canal e não conseguia acompanhar várias vagas. Do lado do sistema, conversas travavam, a IA inventava vagas e consumidores de fila paravam sem derrubar o serviço, então ninguém via o erro.",
+    "steps": [
+      {
+        "title": "Construí o portal PWA do candidato",
+        "text": "Escolha de vaga, múltiplas candidaturas e histórico de conversa separado por vaga, entregue em 12 PRs."
+      },
+      {
+        "title": "Corrigi falhas silenciosas na fila",
+        "text": "O serviço ficava de pé mas parava de consumir. Lendo o código de reconexão, vi que só tratávamos a queda da conexão e que o canal pode morrer sozinho. Adicionei um handler de close que derruba a conexão e dispara a reconexão, com testes simulando a queda. No Redis, coloquei timeout configurável de 30s para o consumidor não travar o pipeline, e a mensagem volta para a fila. Também fiz o watchdog de conversas travadas e a reconciliação de currículos órfãos."
+      },
+      {
+        "title": "Ajustei a IA e a entrega",
+        "text": "Corrigi o comportamento do agente (não inventar vagas, sair de loops, não aprovar sem avaliar todos os critérios). No painel de operação montei o CI/CD: testes, build, GHCR e deploy via Portainer em runner na VPS, mais scripts de backup e monitoramento."
+      }
+    ],
+    "results": [
+      {
+        "value": "12 PRs",
+        "label": "portal PWA do candidato"
+      },
+      {
+        "value": "8 containers",
+        "label": "com deploy automático a cada merge na main"
+      }
+    ],
+    "links": [],
+    "shortTitle": "Confiabilidade em produção"
   }
 ];
