@@ -46,6 +46,13 @@ export type Project = {
 // Ordem da lista na home.
 export const PROJECTS: Project[] = [
   {
+    short: "Painel único de uma edtech: mapa dos sistemas, pendências, ocorrências e um assistente de IA que só executa o que uma pessoa aprova.",
+    category: "full-stack + ia", title: "Mapa do Hub + CTO Hub",
+    desc: "Painel único para a operação de uma edtech: mapa vivo dos sistemas, pendências, ocorrências com escalada automática, monitores de disponibilidade e um assistente de IA que sugere ações, mas só executa o que uma pessoa aprova.",
+    img: "/images/mapa-hub.png", tech: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Cloudflare Workers", "Docker", "CI/CD", "LLM (Claude)"],
+    href: "/cases#case-08", cta: "case completo →", privateRepo: true,
+  },
+  {
     short: "Agente no WhatsApp que conduz a triagem do primeiro contato à classificação, com extração de 18 campos curriculares por IA.",
     category: "ia + automação · hub escola", title: "Agente de triagem de candidatos via WhatsApp",
     desc: "Agente conversacional no WhatsApp que conduz a triagem de candidatos do primeiro contato à classificação automática (apto, reprovado ou desistente), com extração de 18 campos curriculares por IA. O portal de vagas foi adaptado a partir de uma base existente.",

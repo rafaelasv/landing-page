@@ -290,5 +290,52 @@ export const CASES: Case[] = [
     ],
     "links": [],
     "shortTitle": "Confiabilidade em produção"
+  },
+  {
+    "num": "08",
+    "slug": "case-08",
+    "category": "Full-stack · IA",
+    "title": "Mapa do Hub + CTO Hub: painel operacional com assistente de IA",
+    "lead": "Painel único para a operação de uma edtech: mapa vivo dos sistemas, pendências, ocorrências com escalada automática, monitores de disponibilidade e um assistente de IA que sugere ações, mas só executa o que uma pessoa aprova.",
+    "role": "Desenvolvedora Full-Stack",
+    "period": null,
+    "type": "Freelance",
+    "stack": "Next.js · TypeScript · PostgreSQL · Drizzle · Cloudflare Workers · Docker · CI/CD · LLM (Claude)",
+    "context": "Projetei e desenvolvi de ponta a ponta o Mapa do Hub e o CTO Hub, dois sistemas que viraram um aplicativo só: o painel operacional de uma edtech, que reúne o mapa dos sistemas da empresa, as pendências, as ocorrências e um assistente de IA (o CTO).",
+    "problem": "O conhecimento sobre o que existe, o que está quebrado e quem cuida de quê estava espalhado entre conversas, planilhas e a cabeça de poucas pessoas.",
+    "steps": [
+      {
+        "title": "Construí o mapa e as pendências",
+        "text": "Mapa dos sistemas, fluxos e dependências, com leitura diária do estado do projeto. Pendências em lista e kanban, com daily assíncrona e resumo para a diretoria."
+      },
+      {
+        "title": "Automatizei ocorrências e monitores",
+        "text": "Ocorrências com escalada por tempo (responsável, plantão, equipe técnica, diretoria) e linha do tempo que não pode ser apagada. Monitores de site e porta, checados de fora do servidor, que abrem ocorrência sozinhos. Papéis (admin, editor, leitor), plantão semanal e avisos por app, WhatsApp e e-mail."
+      },
+      {
+        "title": "Criei o CTO com aprovação humana",
+        "text": "Assistente de IA que responde com o contexto do projeto, analisa código só em leitura e propõe ações. Nada é executado sem aprovação humana: as propostas vencem em 12 horas, e o executor de infraestrutura fica desligado até ser testado em produção. Um bot do Discord transforma pedidos em rascunhos de pendência."
+      }
+    ],
+    "results": [
+      {
+        "value": "277 testes",
+        "label": "automatizados, com Postgres real em memória (PGlite)"
+      },
+      {
+        "value": "44 tabelas",
+        "label": "e 6 migrações"
+      },
+      {
+        "value": "5 rotinas",
+        "label": "agendadas"
+      },
+      {
+        "value": "CI em todo PR",
+        "label": "tipos, testes, build, varredura de segredos e build da imagem Docker"
+      }
+    ],
+    "links": [],
+    "shortTitle": "Mapa do Hub + CTO Hub"
   }
 ];
