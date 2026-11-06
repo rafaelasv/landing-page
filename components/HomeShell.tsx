@@ -15,7 +15,7 @@ export function HomeShell({ card, children, page = "home", gap = "gap-[104px]" }
     <div className="min-h-screen bg-night text-panel-light">
       <IconNav page={page} />
       <div className="mx-auto grid max-w-[1180px] items-start gap-12 px-3 pt-7 wide:grid-cols-[minmax(290px,330px)_minmax(0,1fr)] wide:gap-[72px] wide:px-8 wide:pt-16">
-        <aside id="inicio" className="no-scrollbar mx-auto w-full max-w-[420px] animate-hero-in wide:sticky wide:top-24 wide:max-h-[calc(100vh-7.5rem)] wide:max-w-none wide:overflow-y-auto">{card}</aside>
+        <aside id="inicio" className="no-scrollbar mx-auto w-full max-w-[420px] animate-hero-in wide:sticky wide:top-[5.5rem] wide:max-h-[calc(100vh-7rem)] wide:max-w-none wide:overflow-y-auto">{card}</aside>
         <main className={`flex min-w-0 flex-col pb-[110px] wide:pb-6 wide:pr-16 ${gap}`}>{children}</main>
       </div>
       <Gatinho outline />

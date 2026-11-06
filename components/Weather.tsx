@@ -3,7 +3,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { WEATHER } from "@/data/widgets";
 
 type Kind = "sun" | "moon" | "cloud-sun" | "cloud-moon" | "cloud" | "fog" | "drizzle" | "rain" | "snow" | "storm";
-type Now = { temp: number; code: number; isDay: boolean; time: string };
+type Now = { temp: number; code: number; isDay: boolean };
 
 /** Códigos WMO do Open-Meteo -> texto em português + ícone. */
 function describe(code: number, isDay: boolean): { text: string; kind: Kind } {
@@ -60,7 +60,6 @@ export function Weather() {
             temp: Math.round(d.current.temperature_2m),
             code: d.current.weather_code,
             isDay: d.current.is_day === 1,
-            time: String(d.current.time).slice(11, 16), // "HH:MM" no fuso pedido
           });
         })
         .catch(() => {});
@@ -78,9 +77,8 @@ export function Weather() {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[kind]}</svg>
       </span>
       <span className="flex min-w-0 flex-1 flex-col text-ink">
-        <span className="font-mono text-[11.5px] text-ink-3">agora · {w.time}</span>
+        <span className="truncate font-mono text-[11.5px] text-ink-3">agora · {WEATHER.place}</span>
         <span className="truncate text-sm font-semibold leading-snug">{w.temp}°C · {text}</span>
-        <span className="text-[13px] leading-snug text-ink-3">{WEATHER.place}</span>
       </span>
     </div>
   );
