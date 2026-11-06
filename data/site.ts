@@ -83,6 +83,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export const JOBS = [
+  { period: "nov/2026 – atual", role: "Trainee de Operações & Automação", org: "Atende Direito", current: true },
   { period: "jul/2026 – atual", role: "Desenvolvedora Full Stack Jr. (Freelance, PJ)", org: "Hub Escola", current: true },
   { period: "mai/2026 – jul/2026", role: "Assistente de Operações (Freelance, PJ)", org: "Amanda Arrigo Teacher", current: false },
   { period: "abr/2026 – jul/2026", role: "Estagiária de Suporte", org: "e-Price Tecnologia", current: false },
