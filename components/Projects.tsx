@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LINKS, PROJECTS, type Project } from "@/data/site";
 import { BigTitle, homeSection } from "./Section";
+import { GitHubGraph } from "./GitHubGraph";
 
 function Row({ p, first }: { p: Project; first: boolean }) {
   const cls = "grid grid-cols-[84px_minmax(0,1fr)_auto] items-center gap-[22px] rounded-2xl p-3.5 text-panel-light no-underline transition-colors hover:bg-night-2 hover:text-panel-light xwide:grid-cols-[120px_minmax(0,1fr)_auto]";
@@ -28,6 +29,7 @@ export function Projects() {
       <div className="flex flex-col gap-1.5">
         {PROJECTS.map((p, i) => <Row key={p.title} p={p} first={i === 0} />)}
       </div>
+      <GitHubGraph />
       <div className="flex flex-wrap gap-x-6 gap-y-2 pl-3.5 font-mono text-sm">
         <Link href="/cases" className="text-lilac hover:text-lilac-light">todos os cases →</Link>
         <a href={LINKS.github} target="_blank" rel="noopener" className="text-panel-light hover:text-lilac">outros repositórios ↗</a>

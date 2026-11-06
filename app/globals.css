@@ -137,6 +137,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 96px;
+    color-scheme: dark;
   }
 
   a {
@@ -186,6 +187,25 @@
 }
 
 .no-scrollbar { scrollbar-width: none; }
+
+/* Barra de rolagem da página (fundo do site, indicador roxo ao passar o mouse) */
+html::-webkit-scrollbar { width: 12px; }
+html::-webkit-scrollbar-track { background: #131115; }
+html::-webkit-scrollbar-thumb { background: #36313c; border-radius: 8px; border: 3px solid #131115; }
+html::-webkit-scrollbar-thumb:hover { background: #5a2d82; }
+html::-webkit-scrollbar-thumb:active { background: #8a5cc0; }
+
+/* Barra horizontal do gráfico do GitHub */
+.gh-scroll::-webkit-scrollbar { height: 8px; }
+.gh-scroll::-webkit-scrollbar-track { background: #221e27; border-radius: 8px; }
+.gh-scroll::-webkit-scrollbar-thumb { background: #4a4452; border-radius: 8px; border: 2px solid #221e27; }
+.gh-scroll::-webkit-scrollbar-thumb:hover { background: #8a5cc0; }
+
+/* Firefox (não aceita ::-webkit-scrollbar) */
+@supports not selector(::-webkit-scrollbar) {
+  html { scrollbar-width: thin; scrollbar-color: #36313c #131115; }
+  .gh-scroll { scrollbar-width: thin; scrollbar-color: #4a4452 #221e27; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
