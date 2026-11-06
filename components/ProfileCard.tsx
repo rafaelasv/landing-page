@@ -15,17 +15,17 @@ const Icon = ({ d }: { d: string }) => (
 /** Card claro do topo/lateral: terminal (no lugar da foto), nome, bio, links, Spotify e clima. */
 export function ProfileCard() {
   return (
-    <div className="relative flex flex-col items-center gap-[18px] overflow-hidden rounded-[20px] bg-paper px-7 pb-[26px] pt-7 text-center text-ink">
+    <div className="relative flex flex-col items-center gap-3 overflow-hidden rounded-[20px] bg-paper px-6 pb-5 pt-5 text-center text-ink">
       {/* arcos tracejados decorativos */}
       <div aria-hidden className="pointer-events-none absolute -left-[90px] -top-[150px] h-[270px] w-[270px] rounded-full border-2 border-dashed border-plum" />
       <div aria-hidden className="pointer-events-none absolute -bottom-10 -left-[150px] h-[270px] w-[270px] rounded-full border-2 border-dashed border-lilac" />
 
-      <div aria-label="resumo da stack" className="relative w-full overflow-hidden whitespace-nowrap rounded-[14px] bg-ink text-left font-mono text-[12.5px] leading-[1.75] shadow-[0_10px_30px_-12px_rgba(90,45,130,.45)]">
-        <div className="flex items-center gap-1.5 border-b border-night-line px-3 py-[9px]">
+      <div aria-label="resumo da stack" className="relative w-full overflow-hidden whitespace-nowrap rounded-[14px] bg-ink text-left font-mono text-[12.5px] leading-[1.6] shadow-[0_10px_30px_-12px_rgba(90,45,130,.45)]">
+        <div className="flex items-center gap-1.5 border-b border-night-line px-3 py-2">
           <span className="h-[9px] w-[9px] rounded-full bg-panel-line" /><span className="h-[9px] w-[9px] rounded-full bg-panel-line" /><span className="h-[9px] w-[9px] rounded-full bg-panel-line" />
           <span className="ml-1.5 text-xs text-panel-dim">zsh</span>
         </div>
-        <div className="px-3.5 pb-3.5 pt-3 text-panel-text">
+        <div className="px-3.5 pb-3 pt-2.5 text-panel-text">
           <div><span className="text-lilac">$</span> whoami</div>
           <div className="text-[#9e98a6]">rafaela</div>
           <div className="mt-1.5"><span className="text-lilac">$</span> cat stack.txt</div>
@@ -38,7 +38,7 @@ export function ProfileCard() {
         <h1 className="text-[30px] font-bold leading-[1.1] tracking-[-0.035em]">Rafaela Tavares</h1>
         <p className="font-mono text-[13.5px] text-plum">~/full-stack · automação</p>
       </div>
-      <p className="relative max-w-[28ch] text-balance text-[15px] leading-normal text-ink-2">{CARD_BIO}</p>
+      <p className="relative text-balance text-[14px] leading-[1.45] text-ink-2">{CARD_BIO}</p>
 
       <div className="relative flex gap-1.5">
         <a href={LINKS.github} target="_blank" rel="noopener" aria-label="GitHub" className={iconBtn}><Icon d={ICON.github} /></a>

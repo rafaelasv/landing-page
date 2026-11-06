@@ -34,7 +34,7 @@ export function Spotify() {
   }, []);
 
   if (!t) return null;
-  const label = t.live ? "ouvindo agora" : `ouvi por último · ${ago(t.playedAt)}`;
+  const label = t.live ? "ouvindo agora" : `ouvi ${ago(t.playedAt)}`;
 
   return (
     <div className="relative flex w-full flex-col gap-2">
