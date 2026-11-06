@@ -34,7 +34,8 @@ export function IconNav({ page = "home" }: { page?: "home" | "cases" }) {
   const active = page === "home" ? spy : "cases";
   return (
     <nav aria-label="principal" className="pointer-events-none sticky top-0 z-30 flex justify-center px-3 pt-4">
-      <div className="pointer-events-auto flex items-center gap-0.5 rounded-[14px] border border-night-line bg-panel/90 p-1.5 backdrop-blur">
+      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[110px] bg-[linear-gradient(to_bottom,#131115_55%,rgba(19,17,21,0))]" />
+      <div className="pointer-events-auto flex items-center gap-0.5 rounded-[14px] border border-night-line bg-panel p-1.5">
         {items.map((n) => {
           const on = !!n.id && active === n.id;
           return (
