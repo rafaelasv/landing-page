@@ -153,6 +153,26 @@
     border-radius: 8px;
   }
 
+  /* Home (v18): regras escopadas em .home-v18 para não mexer em /cases nem nos mini-apps. */
+  html:has(.home-v18) {
+    scroll-padding-top: 24px;
+  }
+  :where(.home-v18) h1,
+  :where(.home-v18) h2 {
+    font-family: var(--font-sora), var(--font-geist), system-ui, sans-serif;
+    font-style: normal;
+  }
+  :where(.home-v18) a {
+    color: #f2f0f4;
+    text-decoration: underline;
+    text-decoration-color: #4a4452;
+    text-underline-offset: 4px;
+  }
+  :where(.home-v18) a:hover {
+    color: #c8b6e2;
+    text-decoration-color: #c8b6e2;
+  }
+
   /* Hide Next.js development indicators */
   [class*="next_logo"],
   [class*="nextjs-portal"],
@@ -176,6 +196,19 @@
 }
 
 @layer components {
+  /* Links do cabeçalho e ícones sociais da home (v18) */
+  .navlink {
+    display: inline-flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 8px;
+    color: #a9a3b0; text-decoration: none; font-size: 15px; text-transform: capitalize;
+    transition: color 0.15s, background 0.15s;
+  }
+  .navlink:hover { color: #f2f0f4; background: #221e27; }
+  .ico {
+    display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+    color: #c8b6e2; text-decoration: none; transition: background 0.15s, color 0.15s;
+  }
+  .ico:hover { background: #2c2731; color: #f2f0f4; }
+
   /* Password Generator Range Slider */
   .password-range::-webkit-slider-thumb {
     @apply appearance-none w-4 h-4 bg-purple-600 rounded-full cursor-pointer;
