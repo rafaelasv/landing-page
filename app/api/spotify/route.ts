@@ -15,8 +15,11 @@ async function accessToken() {
   return (await r.json()).access_token as string;
 }
 
-type Item = { id: string; name: string; artists: { name: string }[]; external_urls: { spotify: string } };
-const shape = (t: Item, live: boolean) => ({ live, id: t.id, track: t.name, artist: t.artists.map((a) => a.name).join(", "), url: t.external_urls.spotify });
+type Item = { id: string; name: string; artists: { name: string }[]; external_urls: { spotify: string }; album: { images: { url: string }[] } };
+const shape = (t: Item, live: boolean, playedAt?: string) => ({
+  live, playedAt, id: t.id, track: t.name, artist: t.artists.map((a) => a.name).join(", "), url: t.external_urls.spotify,
+  cover: t.album.images.at(-1)?.url, // a menor imagem
+});
 
 // Tenta "tocando agora"; se nada estiver tocando, devolve a última faixa. Sem variáveis de ambiente: 204 (o card some).
 export async function GET() {
@@ -32,8 +35,8 @@ export async function GET() {
     const rec = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", { headers: h, next: { revalidate: 30 } });
     if (rec.ok) {
       const j = await rec.json();
-      const t = j?.items?.[0]?.track;
-      if (t) return NextResponse.json(shape(t, false));
+      const item = j?.items?.[0];
+      if (item?.track) return NextResponse.json(shape(item.track, false, item.played_at));
     }
   } catch (e) {
     console.warn("spotify:", e);

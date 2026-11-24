@@ -1,7 +1,7 @@
 // Textos PT/EN. Para mudar um texto, edite aqui (as duas línguas têm as mesmas chaves).
 export const i18n = {
   pt: {
-    navAria: 'principal', langBtn: 'EN', langAria: 'Switch to English',
+    locale: 'pt-BR', navAria: 'principal', langBtn: 'EN', langAria: 'Switch to English',
     nav: { inicio: 'início', projetos: 'projetos', experiencia: 'experiência', stack: 'ferramentas', contato: 'contato' },
     bio: 'Desenvolvedora que transforma processos manuais em sistemas que rodam sozinhos.',
     heroTop: 'Full‑stack', heroBottom: '+ automação',
@@ -48,7 +48,7 @@ export const i18n = {
     ],
   },
   en: {
-    navAria: 'main', langBtn: 'PT', langAria: 'Mudar para português',
+    locale: 'en', navAria: 'main', langBtn: 'PT', langAria: 'Mudar para português',
     nav: { inicio: 'home', projetos: 'projects', experiencia: 'experience', stack: 'tools', contato: 'contact' },
     bio: 'Developer who turns manual processes into systems that run on their own.',
     heroTop: 'Full‑stack', heroBottom: '+ automation',
