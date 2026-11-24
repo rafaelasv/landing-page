@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// v17: home e /cases escuras com card claro.
+// /cases usa as cores do v17. A home (v18) usa ink-fg/muted/faint/title e night-3/line2/panel/card.
 export default {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
@@ -11,7 +11,7 @@ export default {
       },
       colors: {
         paper: "#f5f4f2",
-        ink: { DEFAULT: "#16131a", 2: "#4a4550", 3: "#5f5a66" },
+        ink: { DEFAULT: "#16131a", 2: "#4a4550", 3: "#5f5a66", fg: "#f2f0f4", muted: "#a9a3b0", faint: "#8f8996", title: "#5d5666" },
         line: { DEFAULT: "#e4e2e6", soft: "#efedf1", strong: "#b7b2bd" },
         plum: { DEFAULT: "#5a2d82", bright: "#6b3a96", soft: "#e9e4ef" },
         lilac: { DEFAULT: "#c8b6e2", light: "#ddd0ee" },
@@ -21,11 +21,12 @@ export default {
         spotify: "#1db954",
         panel: { DEFAULT: "#221e27", 2: "#2c2731", line: "#36313c", term: "#0e0c11", text: "#dcd8e0", muted: "#c9c4cf", dim: "#8f8996", light: "#f2f0f4" },
         // fundo escuro da home
-        night: { DEFAULT: "#131115", 2: "#1f1b23", line: "#2c2731", title: "#5d5666", muted: "#a9a3b0", faint: "#8f8996" },
+        night: { DEFAULT: "#131115", 2: "#1f1b23", 3: "#1f1b23", line: "#2c2731", line2: "#36313c", panel: "#221e27", card: "#1b181f", title: "#5d5666", muted: "#a9a3b0", faint: "#8f8996" },
       },
       fontFamily: {
         sans: ["var(--font-geist)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        display: ["var(--font-sora)", "var(--font-geist)", "system-ui", "sans-serif"],
       },
       keyframes: {
         "hero-in": { from: { opacity: "0", transform: "translateY(6px)" }, to: { opacity: "1", transform: "none" } },
